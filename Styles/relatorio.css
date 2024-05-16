@@ -1,0 +1,46 @@
+table{
+    border-collapse: collapse;
+}
+td{
+    border-bottom: 1px solid #ddd;
+}
+
+th{
+    background-color: #d20000;
+    color: white;
+    padding: 10px;
+    border-left:2px solid #ddd;
+}
+td{
+    height: 30px;
+    padding: 10px;
+}
+
+tr{
+    border-style: solid;
+    border-color: #d20000;
+}
+
+.print{
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 5px;
+}
+
+#relatorio{
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bordas{
+    border-style: solid;
+    border-color: #d20000;
+}
+
+.exitb{
+    align-items: right;
+}
