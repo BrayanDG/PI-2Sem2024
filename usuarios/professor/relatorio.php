@@ -6,8 +6,6 @@
     <title>HOMOLOG</title>
     <link rel="stylesheet" href="./Styles/styles.css">
     <link rel="stylesheet" href="./Styles/relatorio.css">
-    <script src="./Scripts/imprimir.js"></script>
-    <script src="./Scripts/filter.js"></script>
     <script src="./Scripts/caixaselection.js"></script>
 </head>
 <body>
