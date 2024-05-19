@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOMOLOG</title>
-    <link rel="stylesheet" href="./Styles/styles.css">
-    <link rel="stylesheet" href="./Styles/relatorio.css">
+    <link rel="stylesheet" href="../../Styles/styles.css">
+    <link rel="stylesheet" href="../../Styles/relatorio.css">
     <script src="./Scripts/caixaselection.js"></script>
 </head>
 <body>
@@ -13,22 +13,22 @@
         <div>
             <div class="logos">
                 <a href="#"> 
-                    <img src="./Imagens/Fatec.png" alt="Fatec Logo">
+                    <img src="../../Imagens/Fatec.png" alt="Fatec Logo">
                 </a>
             </div>
             <div class="logos">
                 <a href="#"> 
-                    <img src="./Imagens/CPS.png" alt="CPS Logo"id="cps-logo">
+                    <img src="../../Imagens/CPS.png" alt="CPS Logo"id="cps-logo">
                 </a>
             </div>
 
         </div>
         <div class="centro-menu">
             <div id="user-active">
-                <img src="./Imagens/user-photo.png" alt="">
+                <img src="../../Imagens/user-photo.png" alt="">
                 <Span>Jeremias</Span>
             </div>
-            <img src="./Imagens/design-bar.png" alt="barra-de-design" id="barra-design">
+            <img src="../../Imagens/design-bar.png" alt="barra-de-design" id="barra-design">
         </div>
         <nav>
             <ul class="menu">
@@ -103,16 +103,9 @@
 
                 </tbody>
             </table>
-            <script>
-                window.onload = () =>{
-                   console.log(document.querySelector("tabela-relatorio > tbody > tr:nth-child(1) > td:nth-child(2)").innerHTML) 
-                }
-                getUniqueValuesFromColumn()
-            </script>
+            
         </div>
-        <div class="print">
-            <button type="button" onclick="imprimirTabela()">Imprimir</button>
-        </div>
+       
     </Div>
 
 </body>

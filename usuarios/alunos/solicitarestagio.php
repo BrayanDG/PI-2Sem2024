@@ -35,8 +35,8 @@
             <ul class="menu">
                     <li><a href="aluno.php">Início</a></li>
                     <li><a href="alterardados.php">Alterar Dados Cadastrais</a></li>
-                    <li ><a href="solicitarestagio.php">Solicitar Estágio</a>  
-                    </li>
+                    <li ><a href="solicitarestagio.php">Solicitar Estágio</a></li>
+                    <li><a href="acompanharestagio.php">Acompanhar Estágio</a></li>
                     <li><a href="Login.html">Sair</a></li>
                 </ul>
         </nav>
@@ -59,6 +59,10 @@
             <div>
                 <label for="representante">Representante:</label>
                 <input type="text" name="representante" id="">
+            </div>
+            <div>
+                <label for="cpfRepresentante">CPF do Representante:</label>
+                <input type="text" name="cpfRepresentante" id="">
             </div>
             <div>
                 <label for="cargoRepresentante">Cargo do Representante:</label>

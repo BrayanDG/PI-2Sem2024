@@ -2,9 +2,25 @@
     $cnpj = $_POST['cnpj'];
     $nomeFantasia = $_POST['nomeFantasia'];
     $representante = $_POST['representante'];
+    $ruaConcedente = $_POST['ruaConcedente'];
+    $cargoRepresentante = $_POST['cargoRepresentante'];
+    $cpfRepresentante = $_POST['cpfRepresentante'];
+
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo de Compromisso</title>
+</head>
+<body>
+<div>
+    <button>Salvar</button>
+    <a href="#">Ir para Programa de Atividade</a>
+</div>
 <div id="container">
-    <p>Pelo presente instrumento, as partes a seguir nomeadas e ao final assinadas, de um lado<?=$nomeFantasia ?>, inscrita no CNPJ sob o nº<?=$cnpj ?>, sita à rua _____________________________________________, doravante denominada CONCEDENTE, neste ato representada por <?=$representante ?>, ____________________(Cargo ou função do representante), portador do CPF nº __________ e, de outro lado, o(a) estudante________________ (NOME DO ESTAGIÁRIO), RG nº ____________, residente à _________________(ENDEREÇO DO ESTAGIÁRIO), na cidade de ___________, doravante denominado ESTAGIÁRIO (A), aluno (a) regularmente matriculado (a) no Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma da Faculdade de Tecnologia de Itapira – Fatec “Ogari de Castro Pacheco”, inscrita no CNPJ sob o nº 62.823.257/0278-05, localizada na cidade de Itapira, Estado de São Paulo, doravante denominada INSTITUIÇÃO DE ENSINO, na condição de interveniente, acordam e estabelecem entre si as cláusulas e condições que regerão este TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO NÃO REMUNERADO. </p>
+    <p>Pelo presente instrumento, as partes a seguir nomeadas e ao final assinadas, de um lado<?=$nomeFantasia ?>, inscrita no CNPJ sob o nº<?=$cnpj ?>, sita à rua <?=$ruaConcedente?>, doravante denominada CONCEDENTE, neste ato representada por <?=$representante ?>, <?=$cargoRepresentante?>, portador do CPF nº <?=$cpfRepresentante?> e, de outro lado, o(a) estudante________________ (NOME DO ESTAGIÁRIO), RG nº ____________, residente à _________________(ENDEREÇO DO ESTAGIÁRIO), na cidade de ___________, doravante denominado ESTAGIÁRIO (A), aluno (a) regularmente matriculado (a) no Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma da Faculdade de Tecnologia de Itapira – Fatec “Ogari de Castro Pacheco”, inscrita no CNPJ sob o nº 62.823.257/0278-05, localizada na cidade de Itapira, Estado de São Paulo, doravante denominada INSTITUIÇÃO DE ENSINO, na condição de interveniente, acordam e estabelecem entre si as cláusulas e condições que regerão este TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO NÃO REMUNERADO. </p>
     <p>CLÁUSULA PRIMEIRA. É objeto do presente Termo de Compromisso de Estágio autorizar a realização de estágio nos termos da Lei 11.788/08 de 25/09/2008, com a finalidade de possibilitar ao (à) Estagiário (a) complementação e aperfeiçoamento prático de seu Curso Superior de Tecnologia, celebrado entre a Concedente e a Instituição de Ensino da qual o (a) Estagiário (a) é aluno (a). </p>
     <p>Parágrafo Primeiro. Entende-se por estágio profissional aquele desenvolvido em ambiente real de trabalho, assumido como ato educativo e supervisionado pela instituição de ensino, em regime de parceria com organizações do mundo do trabalho, objetivando efetiva preparação do estudante para o trabalho, conforme o art. 34, § 1º da Resolução CNE/CP Nº 1/2021.  </p>
     <p>Parágrafo Segundo. As atividades de estágio somente poderão ser iniciadas após assinatura do Termo de Compromisso de Estágio pelas partes envolvidas, não sendo reconhecida ou validada com data retroativa. </p>
@@ -12,7 +28,7 @@
     <p>CLÁUSULA SEGUNDA. As atividades a serem desenvolvidas durante o Estágio, objeto do presente Termo de Compromisso, constarão de Plano de Estágio construído pelo (a) Estagiário (a) em conjunto com a Concedente e orientado por professor da Instituição de Ensino.  </p>
     <p>Parágrafo primeiro: O Plano de Atividade de Estágio – PAE está anexo ao Termo de Compromisso de Estágio.</p>
     <p>CLÁUSULA TERCEIRA. Fica compromissado entre as partes que:</p>
-    <p>I - As atividades do Estágio a serem cumpridas pelo (a) Estagiário (a) serão no horário das _____ às ____ horas, com intervalo das refeições das _____ às _____ horas, de 2ª a 6ª feira, perfazendo _______ horas semanais;  </p>
+    <p>I - As atividades do Estágio a serem cumpridas pelo (a) Estagiário (a) serão no horário das _____ às ____ horas, com intervalo das refeições das _____ às _____ horas, de 2ª a 6ª feira, perfazendo 30 horas semanais;  </p>
     <p>II - A jornada de atividade do (a) Estagiário (a) deverá compatibilizar-se com o horário escolar do(a) Estagiário(a) e com o horário da Concedente;  </p>
     <p>III- Este Termo de Compromisso terá vigência de __/___/___ a __/__/____, podendo ser denunciado a qualquer tempo, por qualquer das três partes envolvidas, unilateralmente, mediante comunicação escrita, com antecedência mínima de 5 (cinco) dias;  </p>
     <p>IV- A vigência deste Termo de Compromisso de Estágio está vinculada à carga horária de Estágio do Projeto Pedagógico do Curso Superior de Tecnologia em que o (a) aluno (a) está regularmente matriculado (a); </p>
@@ -80,3 +96,5 @@
     <p>Por estarem de inteiro e comum acordo com as condições e dizeres deste instrumento, as partes assinam-no em 3 (três) vias de igual teor e forma, todas assinadas pelas partes, depois de lido, conferido e achado conforme em todos os seus termos.</p>
 
 </div>
+</body>
+</html>

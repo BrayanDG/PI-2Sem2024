@@ -36,6 +36,8 @@
             <li><a href="aluno.php">Início</a></li>
                     <li><a href="alterardados.php">Alterar Dados Cadastrais</a></li>
                     <li ><a href="solicitarestagio.php">Solicitar Estágio</a></li>
+                    <li><a href="acompanharestagio.php">Acompanhar Estágio</a></li>
+                    <li><a href="acompanharestagio.php">Acompanhar Estágio</a></li>
                     <li><a href="Login.html">Sair</a></li>
                 </ul>
         </nav>
