@@ -1,3 +1,7 @@
+<?php
+    session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,7 +13,7 @@
     <button>Salvar</button>
     <a href="../aluno.php">Voltar para o sistema</a>
     <div class="container">
-
+       <p><?= $_SESSION['cnpj']?></p>
 
     </div>
 </body>

@@ -5,7 +5,8 @@
     $ruaConcedente = $_POST['ruaConcedente'];
     $cargoRepresentante = $_POST['cargoRepresentante'];
     $cpfRepresentante = $_POST['cpfRepresentante'];
-
+    session_start();
+    $_SESSION['cnpj'] = $cnpj
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

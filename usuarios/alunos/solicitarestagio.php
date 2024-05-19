@@ -43,7 +43,7 @@
               
     </header>
     <div>
-        <form action="./termodecompromisso/gerartermo.php" method="post">
+        <form action="./docs/gerartermo.php" method="post">
             <div>
                 <label for="nomeFantasia">Nome Fantasia:</label>
                 <input type="text" name="nomeFantasia" id="">
