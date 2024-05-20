@@ -69,6 +69,12 @@
                 <input type="text" name="cargoRepresentante" id="">
             </div>
             <div>
+                <label for="remuneracao">Remunerado</label>
+                <input type="radio" name="remuneracao" id="remunerado" value="true">
+                <label for="naoremunerado">Não Remunerado</label>
+                <input type="radio" name="remuneracao" id="naoremunerado" value="">
+            </div>
+            <div>
                 <input type="submit" value="Solicitar">
             </div>
         </form>
