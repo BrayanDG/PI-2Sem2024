@@ -1,5 +1,11 @@
 <?php 
     session_start();
+    $cnpj = $_SESSION['cnpj'] ;
+    $nomeFantasia = $_SESSION['nomeFantasia'] ;
+    $representante = $_SESSION['representante'] ;
+    $ruaConcedente = $_SESSION['ruaConcedente'] ;
+    $cargoRepresentante = $_SESSION['cargoRepresentante'] ;
+    $cpfRepresentante = $_SESSION['cpfRepresentante'] ;
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +17,7 @@
 </head>
 <body>
 <div id="remunerado">
-<p>Pelo presente instrumento, as partes a seguir nomeadas e ao final assinadas, de um lado<?=$nomeFantasia ?>, inscrita no CNPJ sob o nº<?=$cnpj ?>, sita à rua <?=$ruaConcedente?>, doravante denominada CONCEDENTE, neste ato representada por <?=$representante ?>, <?=$cargoRepresentante?>, portador do CPF nº <?=$cpfRepresentante?> e, de outro lado, o(a) estudante________________ (NOME DO ESTAGIÁRIO), RG nº ____________, residente à _________________(ENDEREÇO DO ESTAGIÁRIO), na cidade de ___________, doravante denominado ESTAGIÁRIO (A), aluno (a) regularmente matriculado (a) no Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma da Faculdade de Tecnologia de Itapira – Fatec “Ogari de Castro Pacheco”, inscrita no CNPJ sob o nº 62.823.257/0278-05, localizada na cidade de Itapira, Estado de São Paulo, doravante denominada INSTITUIÇÃO DE ENSINO, na condição de interveniente, acordam e estabelecem entre si as cláusulas e condições que regerão este TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO NÃO REMUNERADO. </p>
+<p>Pelo presente instrumento, as partes a seguir nomeadas e ao final assinadas, de um lado <?=$nomeFantasia ?>, inscrita no CNPJ sob o nº <?=$cnpj ?>, sita à rua <?=$ruaConcedente?>, doravante denominada CONCEDENTE, neste ato representada por <?=$representante ?>, <?=$cargoRepresentante?>, portador do CPF nº <?=$cpfRepresentante?> e, de outro lado, o(a) estudante________________ (NOME DO ESTAGIÁRIO), RG nº ____________, residente à _________________(ENDEREÇO DO ESTAGIÁRIO), na cidade de ___________, doravante denominado ESTAGIÁRIO (A), aluno (a) regularmente matriculado (a) no Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma da Faculdade de Tecnologia de Itapira – Fatec “Ogari de Castro Pacheco”, inscrita no CNPJ sob o nº 62.823.257/0278-05, localizada na cidade de Itapira, Estado de São Paulo, doravante denominada INSTITUIÇÃO DE ENSINO, na condição de interveniente, acordam e estabelecem entre si as cláusulas e condições que regerão este TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO NÃO REMUNERADO. </p>
 <p>CLÁUSULA PRIMEIRA. É objeto do presente Termo de Compromisso de Estágio autorizar a realização de estágio nos termos da Lei 11.788/08 de 25/09/2008, com a finalidade de possibilitar ao (à) Estagiário (a) complementação e aperfeiçoamento prático de seu Curso Superior de Tecnologia, celebrado entre a Concedente e a Instituição de Ensino da qual o (a) Estagiário (a) é aluno (a). </p>
 <p>Parágrafo Primeiro. Entende-se por estágio profissional aquele desenvolvido em ambiente real de trabalho, assumido como ato educativo e supervisionado pela instituição de ensino, em regime de parceria com organizações do mundo do trabalho, objetivando efetiva preparação do estudante para o trabalho, conforme o art. 34, § 1º da Resolução CNE/CP Nº 1/2021.  </p>
 <p>Parágrafo Segundo. As atividades de estágio somente poderão ser iniciadas após assinatura do Termo de Compromisso de Estágio pelas partes envolvidas, não sendo reconhecida ou validada com data retroativa. </p>
