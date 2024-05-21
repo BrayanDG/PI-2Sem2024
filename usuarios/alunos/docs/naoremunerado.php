@@ -7,6 +7,11 @@
     $cargoRepresentante = $_SESSION['cargoRepresentante'] ;
     $cpfRepresentante = $_SESSION['cpfRepresentante'] ;
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./scriptsdocs/imprimir.js"></script>
+<div id="content">
+
+
 <p>Pelo presente instrumento, as partes a seguir nomeadas e ao final assinadas, de um lado <?=$nomeFantasia ?>, inscrita no CNPJ sob o nº <?=$cnpj ?>, sita à rua <?=$ruaConcedente?>, doravante denominada CONCEDENTE, neste ato representada por <?=$representante ?>, <?=$cargoRepresentante?>, portador do CPF nº <?=$cpfRepresentante?> e, de outro lado, o(a) estudante __________ (NOME DO ESTAGIÁRIO), RG nº ____________, residente à___________ (ENDEREÇO DO ESTAGIÁRIO), na cidade de ___________, doravante denominado ESTAGIÁRIO (A), aluno (a) regularmente matriculado (a) no Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma da Faculdade de Tecnologia de Itapira – Fatec “Ogari de Castro Pacheco”, inscrita no CNPJ sob o nº , localizada na cidade de Itapira, Estado de São Paulo, doravante denominada INSTITUIÇÃO DE ENSINO, na condição de interveniente, acordam e estabelecem entre si as cláusulas e condições que regerão este TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO REMUNERADO.</p>
 
 <p>CLÁUSULA PRIMEIRA. É objeto do presente Termo de Compromisso de Estágio autorizar a realização de estágio nos termos da Lei 11.788/08 de 25/09/2008, com a finalidade de possibilitar ao (à) Estagiário (a) complementação e aperfeiçoamento prático de seu Curso Superior de Tecnologia, celebrado entre a Concedente e a Instituição de Ensino da qual o (a) Estagiário (a) é aluno (a).</p>
@@ -100,3 +105,5 @@
 <p>Por estarem de inteiro e comum acordo com as condições e dizeres deste instrumento, as partes assinam-no em 3 (três) vias de igual teor e forma, todas assinadas pelas partes, depois de lido, conferido e achado conforme em todos os seus termos.</p>
 
 <p>CIDADE, XX de XXXXX de 2024.</p>
+
+</div>
