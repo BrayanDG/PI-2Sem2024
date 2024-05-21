@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $cnpj = $_SESSION['cnpj'] ;
     $nomeFantasia = $_SESSION['nomeFantasia'] ;
     $representante = $_SESSION['representante'] ;
     $ruaConcedente = $_SESSION['ruaConcedente'] ;
