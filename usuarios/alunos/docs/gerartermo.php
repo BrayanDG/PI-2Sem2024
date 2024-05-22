@@ -21,4 +21,3 @@
         header('Location: naoremunerado/naoremunerado.php');
     }
 ?>
-
