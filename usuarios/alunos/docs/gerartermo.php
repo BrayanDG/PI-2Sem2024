@@ -16,9 +16,9 @@
     $_SESSION['cpfRepresentante'] = $cpfRepresentante;
 
     if($remuneracao){
-        header('Location: remunerado.php');
+        header('Location: remunerado/remunerado.php');
     }else{
-        header('Location: naoremunerado.php');
+        header('Location: naoremunerado/naoremunerado.php');
     }
 ?>
 
