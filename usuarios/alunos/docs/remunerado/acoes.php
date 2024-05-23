@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 //variaveis do termo
 $termo = $_POST["termo"];
@@ -11,6 +11,7 @@ $datadeinicio = $_POST["datadeinicio"];
 $datadefim = $_POST["datadefim"];
 $apolice = $_POST["apolice"];
 $seguradora = $_POST["seguradora"];
+
 
 $_SESSION["horariodeentrada"] = $horariodeentrada;
 $_SESSION["horariodesaida"] = $horariodesaida;
@@ -53,7 +54,7 @@ $objetivo_5 = $_POST['objetivo_5'];
 $inicio_5 = $_POST['inicio_5'];
 $termino_5 = $_POST['termino_5'];
 
-
+session_start();
 // Salva os dados do primeiro conjunto de variáveis locais em variáveis de sessão
 $_SESSION['atividade_1'] = $atividade_1;
 $_SESSION['descricao_1'] = $descricao_1;
