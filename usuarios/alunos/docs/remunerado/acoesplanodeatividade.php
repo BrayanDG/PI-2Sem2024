@@ -1,29 +1,6 @@
 <?php
-
-
-//variaveis do termo
-$termo = $_POST["termo"];
-$horariodeentrada = $_POST["horariodeentrada"];
-$horariodesaida = $_POST["horariodesaida"];
-$horariodeiniciodarefeicao = $_POST["horariodeiniciodarefeicao"];
-$horariodefimdarefeicao = $_POST["horariodefimdarefeicao"];
-$datadeinicio = $_POST["datadeinicio"];
-$datadefim = $_POST["datadefim"];
-$apolice = $_POST["apolice"];
-$seguradora = $_POST["seguradora"];
-
-
-$_SESSION["horariodeentrada"] = $horariodeentrada;
-$_SESSION["horariodesaida"] = $horariodesaida;
-$_SESSION["horariodeiniciodarefeicao"] = $horariodeiniciodarefeicao;
-$_SESSION["horariodefimdarefeicao"] = $horariodefimdarefeicao;
-$_SESSION["datadeinicio"] = $datadeinicio;
-$_SESSION["datadefim"] = $datadefim;
-$_SESSION["apolice"] = $apolice;
-$_SESSION["seguradora"] = $seguradora;
-
 //variaveis Plano de Atividade
-$pa = $_POST["pa"];
+
 $atividade_1 = $_POST['atividade_1'];
 $descricao_1 = $_POST['descricao_1'];
 $objetivo_1 = $_POST['objetivo_1'];
@@ -92,12 +69,5 @@ $_SESSION['termino_5'] = $termino_5;
 
 
 
-if(isset($termo)){
-    header(location:"gerarpdftermo.php");
-    };
-    
-    if(isset($pa)){
-        header(location:"gerarpdfplanodeatividade.php");
-    };
-
 ?>
+

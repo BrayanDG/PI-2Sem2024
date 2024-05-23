@@ -54,7 +54,7 @@
 
     </div>
 
-<form action="gerarpdftermo.php" method="post" style="border: 1px solid red;">
+<form action="acoestermo.php" method="post" style="border: 1px solid red;">
     <div>
         <input type="text" hidden value="termo" id="termo">
     </div>
@@ -95,7 +95,7 @@
     </div>
 </form>
 
-<form action="acoes.php">
+<form action="acoesplanodeatividade.php">
     <div>
         <input type="text" hidden value="pa" id="pa">
     </div>
