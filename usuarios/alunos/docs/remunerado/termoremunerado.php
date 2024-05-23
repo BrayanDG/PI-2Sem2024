@@ -7,6 +7,7 @@
     $ruaConcedente = $_SESSION['ruaConcedente'] ;
     $cargoRepresentante = $_SESSION['cargoRepresentante'] ;
     $cpfRepresentante = $_SESSION['cpfRepresentante'] ;
+    $horariodeentrada = $_SESSION['horariodeentrada']
 ?>
 <div id="content">
 <p>Pelo presente instrumento, as partes a seguir nomeadas e ao final assinadas, de um lado<?=$nomeFantasia ?>, inscrita no CNPJ sob o nº<?=$cnpj ?>, sita à rua <?=$ruaConcedente?>, doravante denominada CONCEDENTE, neste ato representada por <?=$representante ?>, <?=$cargoRepresentante?>, portador do CPF nº <?=$cpfRepresentante?> e, de outro lado, o(a) estudante________________ (NOME DO ESTAGIÁRIO), RG nº ____________, residente à _________________(ENDEREÇO DO ESTAGIÁRIO), na cidade de ___________, doravante denominado ESTAGIÁRIO (A), aluno (a) regularmente matriculado (a) no Curso Superior de Tecnologia em Desenvolvimento de Software Multiplataforma da Faculdade de Tecnologia de Itapira – Fatec “Ogari de Castro Pacheco”, inscrita no CNPJ sob o nº 62.823.257/0278-05, localizada na cidade de Itapira, Estado de São Paulo, doravante denominada INSTITUIÇÃO DE ENSINO, na condição de interveniente, acordam e estabelecem entre si as cláusulas e condições que regerão este TERMO DE COMPROMISSO DE ESTÁGIO OBRIGATÓRIO NÃO REMUNERADO. </p>
@@ -17,7 +18,7 @@
 <p>CLÁUSULA SEGUNDA. As atividades a serem desenvolvidas durante o Estágio, objeto do presente Termo de Compromisso, constarão de Plano de Estágio construído pelo (a) Estagiário (a) em conjunto com a Concedente e orientado por professor da Instituição de Ensino.  </p>
 <p>Parágrafo primeiro: O Plano de Atividade de Estágio – PAE está anexo ao Termo de Compromisso de Estágio.</p>
 <p>CLÁUSULA TERCEIRA. Fica compromissado entre as partes que:</p>
-<p>I - As atividades do Estágio a serem cumpridas pelo (a) Estagiário (a) serão no horário das _____ às ____ horas, com intervalo das refeições das _____ às _____ horas, de 2ª a 6ª feira, perfazendo 30 horas semanais;  </p>
+<p>I - As atividades do Estágio a serem cumpridas pelo (a) Estagiário (a) serão no horário das <?=$horariodeentrada?> às ____ horas, com intervalo das refeições das _____ às _____ horas, de 2ª a 6ª feira, perfazendo 30 horas semanais;  </p>
 <p>II - A jornada de atividade do (a) Estagiário (a) deverá compatibilizar-se com o horário escolar do(a) Estagiário(a) e com o horário da Concedente;  </p>
 <p>III- Este Termo de Compromisso terá vigência de __/___/___ a __/__/____, podendo ser denunciado a qualquer tempo, por qualquer das três partes envolvidas, unilateralmente, mediante comunicação escrita, com antecedência mínima de 5 (cinco) dias;  </p>
 <p>IV- A vigência deste Termo de Compromisso de Estágio está vinculada à carga horária de Estágio do Projeto Pedagógico do Curso Superior de Tecnologia em que o (a) aluno (a) está regularmente matriculado (a); </p>

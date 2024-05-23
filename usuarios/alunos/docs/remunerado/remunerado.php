@@ -56,6 +56,9 @@
 
 <form action="gerarpdftermo.php" method="post" style="border: 1px solid red;">
     <div>
+        <input type="text" hidden value="termo" id="termo">
+    </div>
+    <div>
         <label for="horariodeentrada">Hora de Entrada</label>
         <input type="time" name="horariodeentrada" id="horariodeentrada">
     </div>
@@ -76,8 +79,8 @@
         <input type="date" name="datadeinicio" id="datadeinicio">
     </div>
     <div>
-        <label for="datadeifim">Data de Fim da Vigência: </label>
-        <input type="date" name="datadeifim" id="datadeifim">
+        <label for="datadefim">Data de Fim da Vigência: </label>
+        <input type="date" name="datadefim" id="datadefim">
     </div>
     <div>
         <label for="apolice">Número da apólice: </label>
@@ -92,88 +95,87 @@
     </div>
 </form>
 
-<form action="gerarpdfplanodeatividade.php">
+<form action="acoes.php">
+    <div>
+        <input type="text" hidden value="pa" id="pa">
+    </div>
     <!-- Preencimento de cabeçalho -->
     <label for="remuneracao">Valor Mensal da Bolsa: </label>
     <input type="text" name="remuneracao"><br>
 
    <!-- Primeira atividade -->
-   <div id="atividades">
-        <div>
-            <label for="atividade">Atividade: </label>
-            <input type="text" name="atividade[]" id="atividade">
-            <label for="descricao">Descrição: </label>
-            <input type="text" name="descricao[]" id="descricao">
-            <label for="objetivo">Objetivo ou Resultado Esperado: </label>
-            <input type="text" name="objetivo[]" id="objetivo">
-            <label for="inicio">Início: </label>
-            <input type="date" name="inicio[]" id="inicio">
-            <label for="termino">Término: </label>
-            <input type="date" name="termino[]" id="termino">
-        </div>
+   <div class="atividade">
+        <label for="atividade1">Atividade: </label>
+        <input type="text" name="atividade_1" id="atividade1">
+        <label for="descricao1">Descrição: </label>
+        <input type="text" name="descricao_1" id="descricao1">
+        <label for="objetivo1">Objetivo ou Resultado Esperado: </label>
+        <input type="text" name="objetivo_1" id="objetivo1">
+        <label for="inicio1">Início: </label>
+        <input type="date" name="inicio_1" id="inicio1">
+        <label for="termino1">Término: </label>
+        <input type="date" name="termino_1" id="termino1">
     </div>
-    <button type="button" id="adicionar">Incluir Atividade</button>
-    <br><br>
+
+    <div class="atividade">
+        <label for="atividade2">Atividade: </label>
+        <input type="text" name="atividade_2" id="atividade2">
+        <label for="descricao2">Descrição: </label>
+        <input type="text" name="descricao_2" id="descricao2">
+        <label for="objetivo2">Objetivo ou Resultado Esperado: </label>
+        <input type="text" name="objetivo_2" id="objetivo2">
+        <label for="inicio2">Início: </label>
+        <input type="date" name="inicio_2" id="inicio2">
+        <label for="termino2">Término: </label>
+        <input type="date" name="termino_2" id="termino2">
+    </div>
+
+    <div class="atividade">
+        <label for="atividade3">Atividade: </label>
+        <input type="text" name="atividade_3" id="atividade3">
+        <label for="descricao3">Descrição: </label>
+        <input type="text" name="descricao_3" id="descricao3">
+        <label for="objetivo3">Objetivo ou Resultado Esperado: </label>
+        <input type="text" name="objetivo_3" id="objetivo3">
+        <label for="inicio3">Início: </label>
+        <input type="date" name="inicio_3" id="inicio3">
+        <label for="termino3">Término: </label>
+        <input type="date" name="termino_3" id="termino3">
+    </div>
+
+    <div class="atividade">
+        <label for="atividade4">Atividade: </label>
+        <input type="text" name="atividade_4" id="atividade4">
+        <label for="descricao4">Descrição: </label>
+        <input type="text" name="descricao_4" id="descricao4">
+        <label for="objetivo4">Objetivo ou Resultado Esperado: </label>
+        <input type="text" name="objetivo_4" id="objetivo4">
+        <label for="inicio4">Início: </label>
+        <input type="date" name="inicio_4" id="inicio4">
+        <label for="termino4">Término: </label>
+        <input type="date" name="termino_4" id="termino4">
+    </div>
+
+    <div class="atividade">
+        <label for="atividade5">Atividade: </label>
+        <input type="text" name="atividade_5" id="atividade5">
+        <label for="descricao5">Descrição: </label>
+        <input type="text" name="descricao_5" id="descricao5">
+        <label for="objetivo5">Objetivo ou Resultado Esperado: </label>
+        <input type="text" name="objetivo_5" id="objetivo5">
+        <label for="inicio5">Início: </label>
+        <input type="date" name="inicio_5" id="inicio5">
+        <label for="termino5">Término: </label>
+        <input type="date" name="termino_5" id="termino5">
+    </div>
+
+    
     <input type="submit" value="Enviar">
 
 </form>
 
 
 <a href="../../aluno.php">Retornar para o menu principal</a>
-<script>
-const adicionar = document.getElementById("adicionar");
-const atividades = document.getElementById("atividades");
 
-adicionar.addEventListener("click", function (event) {
-  let divAtividade = document.createElement("div");
-
-  let labelAtividade = document.createElement("label");
-  labelAtividade.textContent = "Atividade: ";
-  divAtividade.appendChild(labelAtividade);
-
-  let campoAtividade = document.createElement("input");
-  campoAtividade.type = "text";
-  campoAtividade.name = "atividade[]";
-  divAtividade.appendChild(campoAtividade);
-
-  let labelDescricao = document.createElement("label");
-  labelDescricao.textContent = "Descrição: ";
-  divAtividade.appendChild(labelDescricao);
-
-  let campoDescricao = document.createElement("input");
-  campoDescricao.type = "text";
-  campoDescricao.name = "descricao[]";
-  divAtividade.appendChild(campoDescricao);
-
-  let labelObjetivo = document.createElement("label");
-  labelObjetivo.textContent = "Objetivo ou Resultado Esperado: ";
-  divAtividade.appendChild(labelObjetivo);
-
-  let campoObjetivo = document.createElement("input");
-  campoObjetivo.type = "text";
-  campoObjetivo.name = "objetivo[]";
-  divAtividade.appendChild(campoObjetivo);
-
-  let labelInicio = document.createElement("label");
-  labelInicio.textContent = "Início: ";
-  divAtividade.appendChild(labelInicio);
-
-  let campoInicio = document.createElement("input");
-  campoInicio.type = "date";
-  campoInicio.name = "inicio[]";
-  divAtividade.appendChild(campoInicio);
-
-  let labelTermino = document.createElement("label");
-  labelTermino.textContent = "Término: ";
-  divAtividade.appendChild(labelTermino);
-
-  let campoTermino = document.createElement("input");
-  campoTermino.type = "date";
-  campoTermino.name = "termino[]";
-  divAtividade.appendChild(campoTermino);
-
-  atividades.appendChild(divAtividade);
-});
-</script>
 </body>
 </html>
