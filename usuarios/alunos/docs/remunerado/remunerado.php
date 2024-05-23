@@ -55,9 +55,7 @@
     </div>
 
 <form action="acoestermo.php" method="post" style="border: 1px solid red;">
-    <div>
-        <input type="text" hidden value="termo" id="termo">
-    </div>
+   
     <div>
         <label for="horariodeentrada">Hora de Entrada</label>
         <input type="time" name="horariodeentrada" id="horariodeentrada">
@@ -95,10 +93,8 @@
     </div>
 </form>
 
-<form action="acoesplanodeatividade.php">
-    <div>
-        <input type="text" hidden value="pa" id="pa">
-    </div>
+<form action="acoesplanodeatividade.php" method="post">
+    
     <!-- Preencimento de cabeçalho -->
     <label for="remuneracao">Valor Mensal da Bolsa: </label>
     <input type="text" name="remuneracao"><br>
