@@ -1,30 +1,30 @@
 function adicionarCampos(){
 
-    const camposContainer = document.getElementById('fant2');
+    let camposContainer = document.getElementById('fant2');
 
-    const novoCampoDiv = document.createElement('div');
+    let novoCampoDiv = document.createElement('div');
 
-    const novoCampoAtividade = document.createElement('input');
+    let novoCampoAtividade = document.createElement('input');
     novoCampoAtividade.type = 'text';
-    novoCampoAtividade.name = 'atividade[]';
+    novoCampoAtividade.name = 'atividade'+'[]';
     novoCampoAtividade.placeholder = 'atividade';
 
-    const novoCampoDesc = document.createElement('input');
+    let novoCampoDesc = document.createElement('input');
     novoCampoDesc.type = 'text';
-    novoCampoDesc.name = 'descricao[]';
+    novoCampoDesc.name = 'descricao'+'[]';
     novoCampoDesc.placeholder = 'descricao';
 
-    const novoCampoObjetivo = document.createElement('input');
+    let novoCampoObjetivo = document.createElement('input');
     novoCampoObjetivo.type = 'text';
-    novoCampoObjetivo.name = 'objetivo[]';
+    novoCampoObjetivo.name = 'objetivo'+'[]';
     novoCampoObjetivo.placeholder = 'objetivo';
 
-    const novoCampoInicio = document.createElement('input');
-    novoCampoInicio.setAttribute("type", "date","name","inicio[]");
+    let novoCampoInicio = document.createElement('input');
+    novoCampoInicio.setAttribute("type", "date","name",'inicio'+'[]');
 
 
-    const novoCampoTermino = document.createElement('input');
-    novoCampoTermino.setAttribute("type", "date","name","termino[]");
+    let novoCampoTermino = document.createElement('input');
+    novoCampoTermino.setAttribute("type", "date","name",'termino'+'[]');
 
     novoCampoDiv.appendChild(novoCampoAtividade);
     novoCampoDiv.appendChild(novoCampoDesc);
