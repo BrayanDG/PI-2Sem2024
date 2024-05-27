@@ -40,11 +40,14 @@
                     <li><a href="Login.html">Sair</a></li>
                 </ul>
         </nav>
-              
     </header>
-    <div>
 
+    <div class=titulo-fantasia>
+        <h1> Seja Bem-vindo(a)! <h1>
     </div>
+
+</body>
+
 
 </body>
 </html>

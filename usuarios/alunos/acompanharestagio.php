@@ -42,8 +42,8 @@
         </nav>
               
     </header>
-    <div>
-
+    <div class=titulo-fantasia>
+        <h1> Acompanhar Estágio<h1>
     </div>
 
 </body>

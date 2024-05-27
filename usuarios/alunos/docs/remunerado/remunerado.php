@@ -14,7 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../../Styles/styles.css">
+    <link rel="stylesheet" href="../../../../Styles/remunerado.css">
+    <script src="../../../../js/custom.js"></script>
    
 </head>
 <body>
@@ -54,123 +55,96 @@
 
     </div>
 
-<form action="acoestermo.php" method="post" style="border: 1px solid red;">
-   
-    <div>
-        <label for="horariodeentrada">Hora de Entrada</label>
-        <input type="time" name="horariodeentrada" id="horariodeentrada">
-    </div>
-    <div>
-        <label for="horariodesaida">Hora de Saída: </label>
-        <input type="time" name="horariodesaida" id="horariodesaida">
-    </div>
-    <div>
-        <label for="horariodeinicidarefeicao">Hora de Início da Refeição: </label>
-        <input type="time" name="horariodeiniciodarefeicao" id="horariodeiniciodarefeicao">
-    </div>
-    <div>
-        <label for="horariodefimrefeicao">Hora de Fim da Refeição: </label>
-        <input type="time" name="horariodefimdarefeicao" id="horariodefimdarefeicao">
-    </div>
-    <div>
-        <label for="datadeinicio">Data de Inicio da Vigência: </label>
-        <input type="date" name="datadeinicio" id="datadeinicio">
-    </div>
-    <div>
-        <label for="datadefim">Data de Fim da Vigência: </label>
-        <input type="date" name="datadefim" id="datadefim">
-    </div>
-    <div>
-        <label for="apolice">Número da apólice: </label>
-        <input type="text" name="apolice" id="apolice">
-    </div>
-    <div>
-        <label for="seguradora">Seguradora: </label>
-        <input type="text" name="seguradora" id="seguradora">
-    </div>
-    <div>
-        <input type="submit" value="Gerar Termo">
-    </div>
-</form>
-
-<form action="acoesplanodeatividade.php" method="post">
-    
-    <!-- Preencimento de cabeçalho -->
-    <label for="remuneracao">Valor Mensal da Bolsa: </label>
-    <input type="text" name="remuneracao"><br>
-
-   <!-- Primeira atividade -->
-   <div class="atividade">
-        <label for="atividade1">Atividade: </label>
-        <input type="text" name="atividade_1" id="atividade1">
-        <label for="descricao1">Descrição: </label>
-        <input type="text" name="descricao_1" id="descricao1">
-        <label for="objetivo1">Objetivo ou Resultado Esperado: </label>
-        <input type="text" name="objetivo_1" id="objetivo1">
-        <label for="inicio1">Início: </label>
-        <input type="date" name="inicio_1" id="inicio1">
-        <label for="termino1">Término: </label>
-        <input type="date" name="termino_1" id="termino1">
+    <div class="titulo-fantasia">
+        <h2> Remunerado </h2>
     </div>
 
-    <div class="atividade">
-        <label for="atividade2">Atividade: </label>
-        <input type="text" name="atividade_2" id="atividade2">
-        <label for="descricao2">Descrição: </label>
-        <input type="text" name="descricao_2" id="descricao2">
-        <label for="objetivo2">Objetivo ou Resultado Esperado: </label>
-        <input type="text" name="objetivo_2" id="objetivo2">
-        <label for="inicio2">Início: </label>
-        <input type="date" name="inicio_2" id="inicio2">
-        <label for="termino2">Término: </label>
-        <input type="date" name="termino_2" id="termino2">
+    <div class="data-remunerado">
+        <form id="fant" action="acoestermo.php" method="post">
+            <div>
+                <label for="horariodeentrada">Hora de Entrada</label>
+                <input type="time" name="horariodeentrada" id="horariodeentrada">
+            </div>
+            <br>
+            <div>
+                <label for="horariodesaida">Hora de Saída: </label>
+                <input type="time" name="horariodesaida" id="horariodesaida">
+            </div>
+            <br>
+            <div>
+                <label for="horariodeinicidarefeicao">Hora de Início da Refeição: </label>
+                <input type="time" name="horariodeiniciodarefeicao" id="horariodeiniciodarefeicao">
+            </div>
+            <br>
+            <div>
+                <label for="horariodefimrefeicao">Hora de Fim da Refeição: </label>
+                <input type="time" name="horariodefimdarefeicao" id="horariodefimdarefeicao">
+            </div>
+            <br>
+            <div>
+                <label for="datadeinicio">Data de Inicio da Vigência: </label>
+                <input type="date" name="datadeinicio" id="datadeinicio">
+            </div>
+            <br>
+            <div>
+                <label for="datadefim">Data de Fim da Vigência: </label>
+                <input type="date" name="datadefim" id="datadefim">
+            </div>
+            <br>
+            <div>
+                <label for="apolice">Número da apólice: </label>
+                <input type="text" name="apolice" id="apolice">
+            </div>
+            <br>
+            <div>
+                <label for="seguradora">Seguradora: </label>
+                <input type="text" name="seguradora" id="seguradora">
+            </div>
+            <br>
+            <div id="botao-termo">
+                <input type="submit" value="Gerar Termo">
+            </div>
+        </form>
+    </div>    
+
+    <div class="titulo-fantasia2">
+        <h2> Atividade </h2>
     </div>
 
-    <div class="atividade">
-        <label for="atividade3">Atividade: </label>
-        <input type="text" name="atividade_3" id="atividade3">
-        <label for="descricao3">Descrição: </label>
-        <input type="text" name="descricao_3" id="descricao3">
-        <label for="objetivo3">Objetivo ou Resultado Esperado: </label>
-        <input type="text" name="objetivo_3" id="objetivo3">
-        <label for="inicio3">Início: </label>
-        <input type="date" name="inicio_3" id="inicio3">
-        <label for="termino3">Término: </label>
-        <input type="date" name="termino_3" id="termino3">
+    <div id="formnulario">  
+        <div class="data-remunerado2">
+            <form id="fant2" action="acoesplanodeatividade.php" method="post">
+
+            <!-- Primeira atividade -->
+            <div id="atividade">
+                    <label for="atividade[]">Atividade: </label>
+                    <input type="text" name="atividade[]" id="atividade" placeholder="atividade">
+                    <label for="descricao1">Descrição: </label>
+                    <input type="text" name="descricao[]" id="descricao" placeholder="descricao">
+                    <label for="objetivo">Objetivo ou Resultado Esperado: </label>
+                    <input type="text" name="objetivo[]" id="objetivo" placeholder="objetivo">
+                    <label for="inicio">Início: </label>
+                    <input type="date" name="inicio[]" id="inicio" placeholder="inicio">
+                    <label for="termino">Término: </label>
+                    <input type="date" name="termino[]" id="termino" placeholder="termino">
+                    <button type="button" onclick="adicionarCampos()"> + </button>
+
+
+                <br>
+                <br>
+                
+                <div class="valor-mensal">
+                    <!-- Preencimento de cabeçalho -->
+                    <label class=""for="remuneracao">Valor Mensal da Bolsa: </label><br>
+                    <input type="text" name="remuneracao"><br><br>
+                
+                    <div id=solicitarb>
+                        <input type="submit" value="Enviar"><br>
+                    </div>
+            </div>
+            </form>
+        </div>
     </div>
-
-    <div class="atividade">
-        <label for="atividade4">Atividade: </label>
-        <input type="text" name="atividade_4" id="atividade4">
-        <label for="descricao4">Descrição: </label>
-        <input type="text" name="descricao_4" id="descricao4">
-        <label for="objetivo4">Objetivo ou Resultado Esperado: </label>
-        <input type="text" name="objetivo_4" id="objetivo4">
-        <label for="inicio4">Início: </label>
-        <input type="date" name="inicio_4" id="inicio4">
-        <label for="termino4">Término: </label>
-        <input type="date" name="termino_4" id="termino4">
-    </div>
-
-    <div class="atividade">
-        <label for="atividade5">Atividade: </label>
-        <input type="text" name="atividade_5" id="atividade5">
-        <label for="descricao5">Descrição: </label>
-        <input type="text" name="descricao_5" id="descricao5">
-        <label for="objetivo5">Objetivo ou Resultado Esperado: </label>
-        <input type="text" name="objetivo_5" id="objetivo5">
-        <label for="inicio5">Início: </label>
-        <input type="date" name="inicio_5" id="inicio5">
-        <label for="termino5">Término: </label>
-        <input type="date" name="termino_5" id="termino5">
-    </div>
-
-    
-    <input type="submit" value="Enviar">
-
-</form>
-
-
 <a href="../../aluno.php">Retornar para o menu principal</a>
 
 </body>

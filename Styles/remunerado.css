@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+}
+
+
+nav{
+    background-color: #d20000;
+}
+
+nav li{
+    display: inline-block;
+}
+
+
+nav li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav li a:hover{
+    background-color: rgb(94, 15, 15);
+}
+
+.menu li:last-child {
+    float: right;
+    background-color: #d84747;
+}
+
+.dropdown-menu{
+    position: absolute;
+    display: none;
+}
+
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.centro-menu{
+    margin-bottom: 13px;
+}
+
+.logos{
+    display: inline ;
+}
+
+#user-active{
+    position: absolute;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    border-radius: 0px 50px 50px 0px;
+    background-color: #d9d9d9;
+    margin-top: 10px;
+}
+#user-active img{
+    height: 40px;
+}
+
+#barra-design{
+    height: 40px;
+    width: 100%;
+}
+
+#cps-logo{
+    float: right;
+    height: 100px;
+    width: 180px;
+}
+
+.titulo-fantasia{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-fantasia2{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-remunerado{
+        input[type=text], input[type=password]{
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 3px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1
+
+    }
+    input[type=time],[type=date]{
+        width: 100%;
+        display:inline-block;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    padding-top: 20px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fant{
+    
+    border-radius: 25px;
+    border: 3px solid #d20000;
+    padding: 20px;
+    width: 400px;
+    height: auto;
+}
+
+#fant2{
+    
+    border-radius: 25px;
+    border: 3px solid #d20000;
+    padding: 20px;
+    width: 1250px;
+    height: auto;
+}
+
+#botao-termo{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.data-remunerado2{
+    input[type=text], input[type=password]{
+        width: 10%;
+        padding: 15px;
+        margin: 1px 0 1px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1
+
+    }
+    input[type=time],[type=date]{
+        width: 10%;
+        display:inline-block;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
+
+    padding-top: 20px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+valor-mensal{
+    padding-top: 20px;
+    padding-bottom: 60px;
+    display: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#solicitarb{
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #d20000;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 100%;
+    }
+   
+}
+
+
+#botao-termo{
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #d20000;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 100%;
+    }
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
