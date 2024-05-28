@@ -16,12 +16,13 @@ if (!is_dir($diretorio_destino)) {
 
 // Verificar se o arquivo foi carregado com sucesso
 if ($conteudo_pdf['error'] === UPLOAD_ERR_OK) {
-    // Nome do arquivo
-    $nome_arquivo = basename($conteudo_pdf['name']);
+    // Gerar um nome aleatório para o arquivo
+    $extensao = pathinfo($conteudo_pdf['name'], PATHINFO_EXTENSION);
+    $nome_arquivo = uniqid() . '.' . $extensao;
+
     // Caminho completo para salvar o arquivo
     $caminho_arquivo = $diretorio_destino . $nome_arquivo;
 
-    // Mover o arquivo para o diretório desejado
     if (move_uploaded_file($conteudo_pdf['tmp_name'], $caminho_arquivo)) {
         // Armazenar apenas o caminho relativo no banco de dados
         $caminho_arquivo_db = 'uploads/' . $nome_arquivo;
