@@ -60,8 +60,8 @@
                     <input type="text" name="cnpj" id="">
                 </div>
                 <div>
-                    <label for="ruaConcedente">Rua:</label><br>
-                    <input type="text" name="ruaConcedente" id="">
+                    <label for="endConcedente">Endereço:</label><br>
+                    <input type="text" name="endConcedente" id="">
                 </div>
                 <div>
                     <label for="representante">Representante:</label><br>

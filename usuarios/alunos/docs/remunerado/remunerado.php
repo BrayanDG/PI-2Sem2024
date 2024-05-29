@@ -3,7 +3,7 @@
     $cnpj = $_SESSION['cnpj'] ;
     $nomeFantasia = $_SESSION['nomeFantasia'] ;
     $representante = $_SESSION['representante'] ;
-    $ruaConcedente = $_SESSION['ruaConcedente'] ;
+    $endConcedente = $_SESSION['endConcedente'] ;
     $cargoRepresentante = $_SESSION['cargoRepresentante'] ;
     $cpfRepresentante = $_SESSION['cpfRepresentante'] ;
 ?>

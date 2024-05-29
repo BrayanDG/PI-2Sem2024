@@ -1,6 +1,6 @@
 <?php
 // Incluir o arquivo de conexão
-include_once "../../../conexao.php";
+include_once "../../../Classes/conexao.php";
 
 // Receber dados do formulário
 $documentoaluno = filter_input(INPUT_POST, 'documentoaluno', FILTER_SANITIZE_SPECIAL_CHARS);
