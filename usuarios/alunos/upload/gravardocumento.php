@@ -28,7 +28,7 @@ if ($conteudo_pdf['error'] === UPLOAD_ERR_OK) {
         $caminho_arquivo_db = 'uploads/' . $nome_arquivo;
 
         // Preparar a declaração SQL
-        $sql = "INSERT INTO documento (documentoaluno, pdfarquivo) VALUES (:documentoaluno, :pdfarquivo)";
+        $sql = "INSERT INTO documentos (documentoaluno, pdfarquivo) VALUES (:documentoaluno, :pdfarquivo)";
         $stmt = $conn->prepare($sql);
 
         // Bind dos parâmetros

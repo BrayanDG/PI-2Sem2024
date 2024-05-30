@@ -77,9 +77,9 @@
                 </div>
                 <div id="remuneracaob">
                     <label for="remuneracao">Remunerado</label>
-                    <input type="radio" name="remuneracao" id="remunerado" value="true"><br>
+                    <input type="radio" name="remuneracao" id="remunerado" value="sim"><br>
                     <label for="naoremunerado">Não Remunerado</label>
-                    <input type="radio" name="remuneracao" id="naoremunerado" value="">
+                    <input type="radio" name="remuneracao" id="naoremunerado" value="nao">
                 </div><br>
                 <div id=solicitarb>
                     <input type="submit" value="Solicitar"><br>

@@ -7,17 +7,16 @@
     $cpfRepresentante = $_POST['cpfRepresentante'];
     $remuneracao = $_POST['remuneracao'];
 
-    session_start();
-    $_SESSION['cnpj'] = $cnpj;
-    $_SESSION['nomeFantasia'] = $nomeFantasia;
-    $_SESSION['representante'] = $representante;
-    $_SESSION['endConcedente'] = $endConcedente;
-    $_SESSION['cargoRepresentante'] = $cargoRepresentante;
-    $_SESSION['cpfRepresentante'] = $cpfRepresentante;
+    require_once "./Classes/Estagio.php";
 
-    if($remuneracao){
+    $estagio = new Estagio;
+
+    $estagio->cadastrarEmpresa($cnpj,$nomeFantasia,$representante,$endConcedente,$cargoRepresentante,$cpfRepresentante);
+
+
+    if($remuneracao == 'sim'){
         header('Location: remunerado/remunerado.php');
-    }else{
+    }elseif($remuneracao == 'nao'){
         header('Location: naoremunerado/naoremunerado.php');
     }
 ?>
