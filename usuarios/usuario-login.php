@@ -8,11 +8,11 @@ $sql = "SELECT * FROM usuarios
 
 include "../Classes/Conexao.php";
 
-$resultado = $conexao->query($sql);
+$resultado = $conn->query($sql);
 $linha = $resultado->fetch();
+
 $usuario_logado = $linha['email'];
 $tipoUsuario = $linha['tipoUsuario'];
-
 
 if ($tipoUsuario == 'prof'){
 	if ($usuario_logado == null) {
@@ -22,7 +22,7 @@ if ($tipoUsuario == 'prof'){
 	else {
 		session_start();
 		$_SESSION['usuario_logado'] = $usuario_logado;
-		header('Location: /professor/professor.php');
+		header('Location: ./professor/professor.php');
 	}
 } else {
 	if ($usuario_logado == null) {
@@ -32,6 +32,9 @@ if ($tipoUsuario == 'prof'){
 	else {
 		session_start();
 		$_SESSION['usuario_logado'] = $usuario_logado;
-		header('Location: /alunos/aluno.php');
+		header('Location: ./alunos/aluno.php');
 	}
 }
+
+
+?>

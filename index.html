@@ -17,25 +17,26 @@
        
         <div id="vermelho">
             <div id="form-login">
-                <form action="/usuarios/usuario-login.php">
+                <form action="./usuarios/usuario-login.php" method="post">
                     <div class="login">
-                        <label for="user">Email: </label>
+                        <label for="email">Email: </label>
                         <div>
-                            <span><img src="./Imagens/user-login.png" alt=""></span>
-                            <input type="text" name="email" id="" placeholder="Email">
+                            <span><img src="./Imagens/user-login.png" alt="Ícone de usuário"></span>
+                            <input type="text" name="email" id="email" placeholder="Email" required>
                             <div class="clear"></div>
                         </div>
                     </div>
                     <div class="login">
                         <label for="senha">Senha: </label>
                         <div>
-                            <span><img src="./Imagens/user-password.png" alt=""></span>
-                            <input type="password" name="senha" id="" placeholder="*******">
+                            <span><img src="./Imagens/user-password.png" alt="Ícone de senha"></span>
+                            <input type="password" name="senha" id="senha" placeholder="*******" required>
                         </div>
                     </div>   
-                    <span><a href="#">Esqueceu sua senha ?</a></span>
+                    <span><a href="#">Esqueceu sua senha?</a></span>
                     <input type="submit" value="Entrar">
                 </form>
+                
             </div>
         </div>
     </div>  
