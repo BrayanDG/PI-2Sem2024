@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $nome = $_SESSION['nome'];
+    $idEstudante = $_SESSION['idEstudante'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,39 +16,7 @@
     </script>
 </head>
 <body>
-    <header>
-        <div>
-            <div class="logos">
-                <a href="#"> 
-                    <img src="../../Imagens/Fatec.png" alt="Fatec Logo">
-                </a>
-            </div>
-            <div class="logos">
-                <a href="#"> 
-                    <img src="../../Imagens/CPS.png" alt="CPS Logo"id="cps-logo">
-                </a>
-            </div>
-
-        </div>
-        <div class="centro-menu">
-            <div id="user-active">
-                <img src="../../Imagens/user-photo.png" alt="">
-                <Span>Jeremias</Span>
-            </div>
-            <img src="../../Imagens/design-bar.png" alt="barra-de-design" id="barra-design">
-        </div>
-        <nav>
-            <ul class="menu">
-                    <li><a href="aluno.php">Início</a></li>
-                    <li><a href="alterardados.php">Alterar Dados Cadastrais</a></li>
-                    <li ><a href="solicitarestagio.php">Solicitar Estágio</a></li>
-                    <li><a href="acompanharestagio.php">Acompanhar Estágio</a></li>
-                    <li><a href="Login.html">Sair</a></li>
-                </ul>
-        </nav>
-              
-    </header>
-
+<?php include "./menu.php";?>
     <div class="titulo-fantasia">
         <h1> Solicitar Estágio</h1>
     </div>
@@ -51,6 +25,9 @@
     <header>
         <div class="fantasia">
             <form id="fant"action="./docs/gerartermo.php" method="post">
+                <div>
+                    <input type="text" name="idEstudante" value="<?=$idEstudante ?>" hidden>
+                </div>
                 <div>
                     <label for="nomeFantasia">Nome Fantasia:</label><br>
                     <input type="text" name="nomeFantasia" id="">
@@ -70,6 +47,14 @@
                 <div>
                     <label for="cpfRepresentante">CPF do Representante:</label><br>
                     <input type="text" name="cpfRepresentante" id="">
+                </div>
+                <div>
+                    <label for="email">Email do representante:</label><br>
+                    <input type="email" name="email" id="">
+                </div>
+                <div>
+                    <label for="telefone">Telefone:</label><br>
+                    <input type="text" name="telefone" id="">
                 </div>
                 <div>
                     <label for="cargoRepresentante">Cargo do Representante:</label><br>
