@@ -26,7 +26,7 @@
         <div class="fantasia">
             <form id="fant"action="./docs/gerartermo.php" method="post">
                 <div>
-                    <input type="text" name="idEstudante" value="<?=$idEstudante ?>" hidden>
+                    <input name="idEstudante" value="<?=$idEstudante ?>" hidden>
                 </div>
                 <div>
                     <label for="nomeFantasia">Nome Fantasia:</label><br>
@@ -50,7 +50,7 @@
                 </div>
                 <div>
                     <label for="email">Email do representante:</label><br>
-                    <input type="email" name="email" id="">
+                    <input type="text" name="email" id="">
                 </div>
                 <div>
                     <label for="telefone">Telefone:</label><br>

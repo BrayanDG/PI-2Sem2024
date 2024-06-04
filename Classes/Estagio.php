@@ -37,12 +37,12 @@ class Estagio {
         }
     }
 
-    public function carregarDadosEstagio($idestagio) {
-        $sql = "SELECT * FROM estagios WHERE idestagio = :idestagio";
+    public function carregarDadosEstagio($idEstudante) {
+        $sql = "SELECT * FROM estagios WHERE idEstudante = :idEstudante";
         
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':idestagio', $idestagio);
+            $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->execute();
             $linha = $stmt->fetch(PDO::FETCH_ASSOC);
             return $linha;
@@ -85,12 +85,12 @@ class Estagio {
         }
     }
 
-    public function deletarEstagio($idestagio) {
-        $sql = "DELETE FROM estagios WHERE idestagio = :idestagio";
+    public function deletarEstagio($idEstudante) {
+        $sql = "DELETE FROM estagios WHERE idEstudante = :idEstudante";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':idestagio', $idestagio);
+            $stmt->bindParam(':idEstudante', $$idEstudante);
             $stmt->execute();
             echo "Estágio deletado com sucesso!";
         } catch (PDOException $e) {

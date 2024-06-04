@@ -1,5 +1,4 @@
 <?php
-// Captura e validação dos dados de entrada
 $nomeFantasia = isset($_POST['nomeFantasia']) ? $_POST['nomeFantasia'] : null;
 $representante = isset($_POST['representante']) ? $_POST['representante'] : null;
 $cargoRepresentante = isset($_POST['cargoRepresentante']) ? $_POST['cargoRepresentante'] : null;
@@ -18,22 +17,30 @@ if ($nomeFantasia && $representante && $cargoRepresentante && $telefone && $emai
     $empresa = new Empresa();
     $empresa->cadastrarEmpresa($nomeFantasia, $representante, $cargoRepresentante, $telefone, $email, $cpfRepresentante, $endConcedente, $cnpj);
 
-    // Cria a solicitação de estágio
-    require_once "./Classes/Estagio.php";
-    $estagio = new Estagio();
-    $acompanhamentoEstagio = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
-    $notaFinal = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
-    $idProfessorOrientador = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
-    $iddocumento = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
-    $idempresa = $cnpj; // Ou obtenha de outra fonte se necessário
+    // Obter dados da empresa pelo CNPJ
+    $dadosEmpresa = $empresa->carregarDadosEmpresa($cnpj);
 
-    $estagio->cadastrarEstagio($acompanhamentoEstagio, $notaFinal, $idEstudante, $idProfessorOrientador, $iddocumento, $idempresa);
+    if ($dadosEmpresa && isset($dadosEmpresa['id'])) {
+        $idempresa = $dadosEmpresa['id'];
 
-    // Redireciona para a documentação necessária
-    if ($remuneracao == 'sim') {
-        header('Location: remunerado/remunerado.php');
-    } elseif ($remuneracao == 'nao') {
-        header('Location: naoremunerado/naoremunerado.php');
+        // Cria a solicitação de estágio
+        require_once "./Classes/Estagio.php";
+        $estagio = new Estagio();
+        $acompanhamentoEstagio = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
+        $notaFinal = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
+        $idProfessorOrientador = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
+        $iddocumento = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
+
+        $estagio->cadastrarEstagio($acompanhamentoEstagio, $notaFinal, $idEstudante, $idProfessorOrientador, $iddocumento, $idempresa);
+
+        // Redireciona para a documentação necessária
+        if ($remuneracao == 'sim') {
+            header('Location: remunerado/remunerado.php');
+        } elseif ($remuneracao == 'nao') {
+            header('Location: naoremunerado/naoremunerado.php');
+        }
+    } else {
+        echo "Erro: Não foi possível obter os dados da empresa.";
     }
 } else {
     echo "Erro: Todos os campos são obrigatórios.";

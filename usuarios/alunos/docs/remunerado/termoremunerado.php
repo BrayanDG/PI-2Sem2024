@@ -1,12 +1,29 @@
 
 <?php 
+    require "../../../../Classes/Estagio.php";
+    require "../../../../Classes/Empresa.php";
+
     session_start();
-    $cnpj = $_SESSION['cnpj'] ;
-    $nomeFantasia = $_SESSION['nomeFantasia'] ;
-    $representante = $_SESSION['representante'] ;
-    $endConcedente = $_SESSION['endConcedente'] ;
-    $cargoRepresentante = $_SESSION['cargoRepresentante'] ;
-    $cpfRepresentante = $_SESSION['cpfRepresentante'] ;
+    $estudante = $_SESSION['idEstudante'];
+
+    $estagio = new Estagio;
+    $estagio->carregarDadosEstagio($estudante);
+
+    $empresa = new Empresa();
+    $empresa->carregarDadosEmpresa($estagio['idempresa']);
+
+    
+    //preenchimento de dados da empresa
+    $cnpj = $empresa['cnpj'] ;
+    $nomeFantasia = $empresa['nomeFantasia'] ;
+    $representante = $empresa['representante'] ;
+    $endConcedente = $empresa['endConcedente'] ;
+    $cargoRepresentante = $empresa['cargoRepresentante'] ;
+    $cpfRepresentante = $empresa['cpfRepresentante'] ;
+
+    //preenchimento dos dados do aluno
+
+    //preenchimento dos dados complementares
     $horariodeentrada = $_SESSION["horariodeentrada"];
     $horariodesaida = $_SESSION["horariodesaida"];
     $horariodeiniciodarefeicao = $_SESSION["horariodeiniciodarefeicao"];
