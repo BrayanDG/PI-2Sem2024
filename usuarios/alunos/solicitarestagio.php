@@ -7,6 +7,12 @@ if (!isset($_SESSION['nome']) || !isset($_SESSION['idEstudante'])) {
 }
 $nome = $_SESSION['nome'];
 $idEstudante = $_SESSION['idEstudante'];
+
+require ('../../Classes/Estagio.php');
+
+$estagio = new Estagio();
+
+$linhaEstagio = $estagio->carregarDadosEstagio($idEstudante);
 ?>
 
 <!DOCTYPE html>
@@ -18,16 +24,20 @@ $idEstudante = $_SESSION['idEstudante'];
     <link rel="stylesheet" href="../../Styles/styles.css">
 </head>
 <body>
-<p><?= htmlspecialchars($idEstudante) ?></p>
+
 <?php include "./menu.php"; ?>
-    <div class="titulo-fantasia">
-        <h1>Solicitar Estágio</h1>
-    </div>
-    <header>
-        <p></p>
-        <div class="fantasia">
+<div class="titulo-fantasia">
+    <h1>Solicitar Estágio</h1>
+</div>
+<header>
+    <?php
+    if ($linhaEstagio['acompanhamentoEstagio'] == 'ativo') {
+        
+        header('location: ./docs/gerartermo.php?ativo=1');
+    } else {
+        echo '<div class="fantasia">
             <form id="fant" action="./docs/gerartermo.php" method="post">
-                <input type="hidden" name="idEstudante" value="<?= htmlspecialchars($idEstudante) ?>">
+                <input type="hidden" name="idEstudante" value="' . htmlspecialchars($idEstudante) . '">
                 <div>
                     <label for="nomeFantasia">Nome Fantasia:</label><br>
                     <input type="text" name="nomeFantasia" id="nomeFantasia" required>
@@ -69,7 +79,9 @@ $idEstudante = $_SESSION['idEstudante'];
                     <input type="submit" value="Solicitar"><br>
                 </div>
             </form>
-        </div>
-    </header>
+        </div>';
+    }
+    ?>
+</header>
 </body>
 </html>

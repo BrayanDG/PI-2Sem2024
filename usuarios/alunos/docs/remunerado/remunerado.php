@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    $nome = $_SESSION['nome'];
 ?>
 
 <!DOCTYPE html>
@@ -30,17 +31,17 @@
         <div class="centro-menu">
             <div id="user-active">
                 <img src="../../../../Imagens/user-photo.png" alt="">
-                <Span>Jeremias</Span>
+                <Span><?=$nome?></Span>
             </div>
             <img src="../../../../Imagens/design-bar.png" alt="barra-de-design" id="barra-design">
         </div>
         <nav>
             <ul class="menu">
             <li><a href="aluno.php">Início</a></li>
-                    <li><a href="../../alterardados.php">Alterar Dados Cadastrais</a></li>
-                    <li ><a href="../../solicitarestagio.php">Solicitar Estágio</a></li>
-                    <li><a href="../../acompanharestagio.php">Acompanhar Estágio</a></li>
-                    <li><a href="../../Login.html">Sair</a></li>
+                    <li><a href="./../../alterardados.php">Alterar Dados Cadastrais</a></li>
+                    <li ><a href="./../../solicitarestagio.php">Solicitar Estágio</a></li>
+                    <li><a href="./../../acompanharestagio.php">Acompanhar Estágio</a></li>
+                    <li><a href="./../../alunosair.php">Sair</a></li>
                 </ul>
         </nav>
               

@@ -1,4 +1,10 @@
 <?php
+if (isset($_GET['ativo']) && $_GET['ativo'] == 1) {
+    // Se o estudante já tem estágio ativo, redireciona para a página correta
+    header('Location: ./remunerado/remunerado.php');
+    exit();
+}
+
 $nomeFantasia = isset($_POST['nomeFantasia']) ? $_POST['nomeFantasia'] : null;
 $representante = isset($_POST['representante']) ? $_POST['representante'] : null;
 $cargoRepresentante = isset($_POST['cargoRepresentante']) ? $_POST['cargoRepresentante'] : null;
@@ -36,8 +42,10 @@ if ($nomeFantasia && $representante && $cargoRepresentante && $telefone && $emai
         // Redireciona para a documentação necessária
         if ($remuneracao == 'sim') {
             header('Location: remunerado/remunerado.php');
+            exit();
         } elseif ($remuneracao == 'nao') {
             header('Location: naoremunerado/naoremunerado.php');
+            exit();
         }
     } else {
         echo "Erro: Não foi possível obter os dados da empresa.";
