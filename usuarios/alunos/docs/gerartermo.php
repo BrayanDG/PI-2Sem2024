@@ -13,25 +13,25 @@ $idEstudante = isset($_POST['idEstudante']) ? $_POST['idEstudante'] : null;
 // Verifica se todos os campos obrigatórios foram preenchidos
 if ($nomeFantasia && $representante && $cargoRepresentante && $telefone && $email && $cpfRepresentante && $endConcedente && $cnpj && $remuneracao && $idEstudante) {
     // Salva os dados da empresa
-    require_once "./Classes/Empresa.php";
+    require_once "../../../Classes/Empresa.php";
     $empresa = new Empresa();
     $empresa->cadastrarEmpresa($nomeFantasia, $representante, $cargoRepresentante, $telefone, $email, $cpfRepresentante, $endConcedente, $cnpj);
 
     // Obter dados da empresa pelo CNPJ
     $dadosEmpresa = $empresa->carregarDadosEmpresa($cnpj);
 
-    if ($dadosEmpresa && isset($dadosEmpresa['id'])) {
-        $idempresa = $dadosEmpresa['id'];
+    if ($dadosEmpresa && isset($dadosEmpresa['idEmpresa'])) {
+        $idEmpresa = $dadosEmpresa['idEmpresa'];
 
         // Cria a solicitação de estágio
-        require_once "./Classes/Estagio.php";
+        require_once "../../../Classes/Estagio.php";
         $estagio = new Estagio();
         $acompanhamentoEstagio = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
         $notaFinal = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
         $idProfessorOrientador = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
-        $iddocumento = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
+        $idDocumento = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
 
-        $estagio->cadastrarEstagio($acompanhamentoEstagio, $notaFinal, $idEstudante, $idProfessorOrientador, $iddocumento, $idempresa);
+        $estagio->cadastrarEstagio($acompanhamentoEstagio, $notaFinal, $idEstudante, $idProfessorOrientador, $idDocumento, $idEmpresa);
 
         // Redireciona para a documentação necessária
         if ($remuneracao == 'sim') {

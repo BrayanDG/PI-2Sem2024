@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $nome = $_SESSION['nome']
+    $nome = $_SESSION['nome'];
+    $idEstudante = $_SESSION['idEstudante'];
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +16,10 @@
     </script>
 </head>
 <body>
+    
     <?php include "./menu.php";?>
     <div class=titulo-fantasia>
-        <h1> Seja Bem-vindo(a)! <h1>
+        <h1> Seja Bem-vindo(a)!<h1>
     </div>
 
 </body>

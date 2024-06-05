@@ -27,7 +27,7 @@
                     <li><a href="alterardados.php">Alterar Dados Cadastrais</a></li>
                     <li ><a href="solicitarestagio.php">Solicitar Estágio</a></li>
                     <li><a href="acompanharestagio.php">Acompanhar Estágio</a></li>
-                    <li><a href="../../index.html">Sair</a></li>
+                    <li><a href="alunosair.php">Sair</a></li>
                 </ul>
         </nav>
     </header>

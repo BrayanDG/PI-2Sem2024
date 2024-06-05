@@ -2,58 +2,46 @@
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$sql = "SELECT * FROM usuarios
-        WHERE email = '{$email}'
-        AND senha = '{$senha}'";
+require ('../Classes/Conexao.php');
+// Use prepared statements to avoid SQL injection
+$sql = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
 
-include "../Classes/Conexao.php";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':senha', $senha);
+$stmt->execute();
 
-$resultado = $conn->query($sql);
-$linha = $resultado->fetch();
+$linha = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$usuario_logado = $linha['email'];
-$tipoUsuario = $linha['tipoUsuario'];
+if ($linha) {
+    $usuario_logado = $linha['email'];
+    $tipoUsuario = $linha['tipoUsuario'];
 
-if ($tipoUsuario == 'prof'){
-	if ($usuario_logado == null) {
-		// Usuário ou senha inválida
-		header('Location: usuario-erro.php');
-	} 
-	else {
-		session_start();
-		$_SESSION['usuario_logado'] = $usuario_logado;
-		header('Location: ./professor/professor.php');
-	}
+    if ($tipoUsuario == 'prof') {
+        session_start();
+        $_SESSION['usuario_logado'] = $usuario_logado;
+        header('Location: ./professor/professor.php');
+    } else {
+        session_start();
+        $idUsuario = $linha['idUsuario'];
+
+        require "../Classes/Estudante.php";
+        $localizarEstudante = new Estudante();
+        $linhaEstudante = $localizarEstudante->carregarDadosEstudanteporidusuario($idUsuario);
+     
+
+        if ($linhaEstudante) {
+            $_SESSION['idEstudante'] = $linhaEstudante['idEstudante'];
+            $_SESSION['nome'] = $linhaEstudante['nome'];
+            $_SESSION['usuario_logado'] = $usuario_logado;
+            header('Location: ./alunos/aluno.php');
+        } else {
+            // Estudante não encontrado
+            header('Location: estudante-naoencontrado.php');
+        }
+    }
 } else {
-	if ($usuario_logado == null) {
-		// Usuário ou senha inválida
-		header('Location: usuario-erro.php');
-	} 
-	else {
-		session_start();
-
-		$idUsuario = $linha['idUsuarios'];
-
-		//indentificando o estudante e armazenando na variavel de sessão
-
-		include "../Classes/Conexao.php";
-
-		$sql = "SELECT * FROM estudantes
-        WHERE idUsuario = '{$idUsuario}'
-        ";
-
-		$resultado = $conn->query($sql);
-		$linha = $resultado->fetch();
-
-		$_SESSION['idEstudante'] = $linha['idEstudante'];
-		$_SESSION['nome'] = $linha['nome'];
-
-		$_SESSION['usuario_logado'] = $usuario_logado;
-
-
-		header('Location: ./alunos/aluno.php');
-	}
+    // Usuário ou senha inválida
+    header('Location: usuario-naoencontrado.php');
 }
-
-
 ?>

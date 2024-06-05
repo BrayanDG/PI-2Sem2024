@@ -7,7 +7,7 @@ class Estagio {
     }
 
     private function connect() {
-        include "./Conexao.php";
+        include "Conexao.php";
         $this->conn = $conn;
     }
 
@@ -16,11 +16,11 @@ class Estagio {
         $notaFinal,
         $idEstudante,
         $idProfessorOrientador,
-        $iddocumento,
-        $idempresa
+        $idDocumento,
+        $idEmpresa
     ) {
-        $sql = "INSERT INTO estagios (acompanhamentoEstagio, notaFinal, idEstudante, idProfessorOrientador, iddocumento, idempresa)
-                VALUES (:acompanhamentoEstagio, :notaFinal, :idEstudante, :idProfessorOrientador, :iddocumento, :idempresa)";
+        $sql = "INSERT INTO estagios (acompanhamentoEstagio, notaFinal, idEstudante, idProfessorOrientador, idDocumento, idEmpresa)
+                VALUES (:acompanhamentoEstagio, :notaFinal, :idEstudante, :idProfessorOrientador, :idDocumento, :idEmpresa)";
         
         try {
             $stmt = $this->conn->prepare($sql);
@@ -28,8 +28,8 @@ class Estagio {
             $stmt->bindParam(':notaFinal', $notaFinal);
             $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->bindParam(':idProfessorOrientador', $idProfessorOrientador);
-            $stmt->bindParam(':iddocumento', $iddocumento);
-            $stmt->bindParam(':idempresa', $idempresa);
+            $stmt->bindParam(':idDocumento', $idDocumento);
+            $stmt->bindParam(':idEmpresa', $idEmpresa);
             $stmt->execute();
             echo "Estágio cadastrado com sucesso!";
         } catch (PDOException $e) {
@@ -52,22 +52,22 @@ class Estagio {
     }
 
     public function atualizarEstagio(
-        $idestagio,
+        $idEstagio,
         $acompanhamentoEstagio,
         $notaFinal,
         $idEstudante,
         $idProfessorOrientador,
-        $iddocumento,
-        $idempresa
+        $idDocumento,
+        $idEmpresa
     ) {
         $sql = "UPDATE estagios 
                 SET acompanhamentoEstagio = :acompanhamentoEstagio, 
                     notaFinal = :notaFinal, 
                     idEstudante = :idEstudante, 
                     idProfessorOrientador = :idProfessorOrientador, 
-                    iddocumento = :iddocumento, 
-                    idempresa = :idempresa 
-                WHERE idestagio = :idestagio";
+                    idDocumento = :idDocumento, 
+                    idEmpresa = :idEmpresa 
+                WHERE idEstagio = :idEstagio";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -75,9 +75,9 @@ class Estagio {
             $stmt->bindParam(':notaFinal', $notaFinal);
             $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->bindParam(':idProfessorOrientador', $idProfessorOrientador);
-            $stmt->bindParam(':iddocumento', $iddocumento);
-            $stmt->bindParam(':idempresa', $idempresa);
-            $stmt->bindParam(':idestagio', $idestagio);
+            $stmt->bindParam(':idDocumento', $idDocumento);
+            $stmt->bindParam(':idEmpresa', $idEmpresa);
+            $stmt->bindParam(':idEstagio', $idEstagio);
             $stmt->execute();
             echo "Estágio atualizado com sucesso!";
         } catch (PDOException $e) {

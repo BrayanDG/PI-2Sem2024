@@ -7,7 +7,7 @@ class Empresa {
     }
 
     private function connect() {
-        include "./Conexao.php";
+        include "Conexao.php";
         $this->conn = $conn;
     }
 
@@ -47,6 +47,19 @@ class Empresa {
         try {
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':cnpj', $cnpj);
+            $stmt->execute();
+            $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $linha;
+        } catch (PDOException $e) {
+            echo "Erro ao carregar dados da empresa: " . $e->getMessage();
+        }
+    }
+    public function carregarDadosEmpresaPorId($idEmpresa) {
+        $sql = "SELECT * FROM empresas WHERE idEmpresa = :idEmpresa";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':idEmpresa', $idEmpresa);
             $stmt->execute();
             $linha = $stmt->fetch(PDO::FETCH_ASSOC);
             return $linha;
