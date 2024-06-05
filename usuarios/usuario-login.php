@@ -37,11 +37,11 @@ if ($linha) {
             header('Location: ./alunos/aluno.php');
         } else {
             // Estudante não encontrado
-            header('Location: estudante-naoencontrado.php');
+            header('Location: estudante-erro.php');
         }
     }
 } else {
     // Usuário ou senha inválida
-    header('Location: usuario-naoencontrado.php');
+    header('Location: estudante-erro.php');
 }
 ?>
