@@ -16,11 +16,10 @@ class Estagio {
         $notaFinal,
         $idEstudante,
         $idProfessorOrientador,
-        $idDocumento,
         $idEmpresa
     ) {
-        $sql = "INSERT INTO estagios (acompanhamentoEstagio, notaFinal, idEstudante, idProfessorOrientador, idDocumento, idEmpresa)
-                VALUES (:acompanhamentoEstagio, :notaFinal, :idEstudante, :idProfessorOrientador, :idDocumento, :idEmpresa)";
+        $sql = "INSERT INTO estagios (acompanhamentoEstagio, notaFinal, idEstudante, idProfessorOrientador, idEmpresa)
+                VALUES (:acompanhamentoEstagio, :notaFinal, :idEstudante, :idProfessorOrientador,  :idEmpresa)";
         
         try {
             $stmt = $this->conn->prepare($sql);
@@ -28,7 +27,6 @@ class Estagio {
             $stmt->bindParam(':notaFinal', $notaFinal);
             $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->bindParam(':idProfessorOrientador', $idProfessorOrientador);
-            $stmt->bindParam(':idDocumento', $idDocumento);
             $stmt->bindParam(':idEmpresa', $idEmpresa);
             $stmt->execute();
             echo "Estágio cadastrado com sucesso!";
@@ -57,7 +55,6 @@ class Estagio {
         $notaFinal,
         $idEstudante,
         $idProfessorOrientador,
-        $idDocumento,
         $idEmpresa
     ) {
         $sql = "UPDATE estagios 
@@ -65,7 +62,6 @@ class Estagio {
                     notaFinal = :notaFinal, 
                     idEstudante = :idEstudante, 
                     idProfessorOrientador = :idProfessorOrientador, 
-                    idDocumento = :idDocumento, 
                     idEmpresa = :idEmpresa 
                 WHERE idEstagio = :idEstagio";
 
@@ -75,7 +71,6 @@ class Estagio {
             $stmt->bindParam(':notaFinal', $notaFinal);
             $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->bindParam(':idProfessorOrientador', $idProfessorOrientador);
-            $stmt->bindParam(':idDocumento', $idDocumento);
             $stmt->bindParam(':idEmpresa', $idEmpresa);
             $stmt->bindParam(':idEstagio', $idEstagio);
             $stmt->execute();

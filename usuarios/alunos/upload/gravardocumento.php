@@ -1,21 +1,22 @@
 <?php
 // Incluir o arquivo de conexão
 include_once "../../../Classes/Conexao.php";
+include_once "../../../Classes/Documento.php";
 
 // Receber dados do formulário
-$documentoaluno = filter_input(INPUT_POST, 'documentoaluno', FILTER_SANITIZE_SPECIAL_CHARS);
-$conteudo_pdf = $_FILES['pdfarquivo'];
+$descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+$idEstagio = filter_input(INPUT_POST, 'idEstagio', FILTER_SANITIZE_NUMBER_INT);
+$conteudo_pdf = isset($_FILES['pdfarquivo']) ? $_FILES['pdfarquivo'] : null;
 
-// Diretório onde o arquivo será salvo
-$diretorio_destino = __DIR__ . '/uploads/';
+if ($conteudo_pdf && $conteudo_pdf['error'] === UPLOAD_ERR_OK) {
+    // Diretório onde o arquivo será salvo
+    $diretorio_destino = __DIR__ . '/uploads/';
 
-// Verificar se o diretório existe, se não, criar
-if (!is_dir($diretorio_destino)) {
-    mkdir($diretorio_destino, 0777, true);
-}
+    // Verificar se o diretório existe, se não, criar
+    if (!is_dir($diretorio_destino)) {
+        mkdir($diretorio_destino, 0777, true);
+    }
 
-// Verificar se o arquivo foi carregado com sucesso
-if ($conteudo_pdf['error'] === UPLOAD_ERR_OK) {
     // Gerar um nome aleatório para o arquivo
     $extensao = pathinfo($conteudo_pdf['name'], PATHINFO_EXTENSION);
     $nome_arquivo = uniqid() . '.' . $extensao;
@@ -27,17 +28,10 @@ if ($conteudo_pdf['error'] === UPLOAD_ERR_OK) {
         // Armazenar apenas o caminho relativo no banco de dados
         $caminho_arquivo_db = 'uploads/' . $nome_arquivo;
 
-        // Preparar a declaração SQL
-        $sql = "INSERT INTO documentos (documentoaluno, pdfarquivo) VALUES (:documentoaluno, :pdfarquivo)";
-        $stmt = $conn->prepare($sql);
-
-        // Bind dos parâmetros
-        $stmt->bindParam(':documentoaluno', $documentoaluno);
-        $stmt->bindParam(':pdfarquivo', $caminho_arquivo_db);
-
-        // Executar a declaração SQL
-        if ($stmt->execute()) {
-            echo "Registro gravado com sucesso";
+        // Criar instância do documento e cadastrar
+        $documento = new Documento();
+        if ($documento->cadastrarDocumento($idEstagio, $descricao, $caminho_arquivo_db)) {
+            echo "Documento cadastrado com sucesso";
             // Redirecionar após 3 segundos
             header("refresh:3; URL=../aluno.php");
         } else {
