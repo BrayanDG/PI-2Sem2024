@@ -1,0 +1,52 @@
+<?php
+session_start();
+require ('../../Classes/Estagio.php');
+require ('../../Classes/Professor.php');
+
+
+$estagio = new Estagio();
+$professor = new ProfessorOrientador();
+
+$estagios = $estagio->carregarTodosEstagios();
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Estágios</title>
+    <link rel="stylesheet" href="../../Styles/styles.css">
+</head>
+<body>
+    <?php
+        include "./menu.php"
+    ?>
+    <h1>Visualizar Estágios</h1>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Estágio</th>
+            <th>Documentos</th>
+            <th>Ações</th>
+        </tr>
+        <?php if ($estagios && $estagios->rowCount() > 0): ?>
+            <?php while ($row = $estagios->fetch(PDO::FETCH_ASSOC)): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['nome']); ?></td>
+                    <td><?php echo htmlspecialchars($row['acompanhamentoEstagio']); ?></td>
+                    <td>
+                        <a href="visualizardocumentos.php?idEstagio=<?php echo $row['idEstagio']; ?>">Visualizar</a>
+                    </td>
+                    <td>
+                        <a href="excluir_estagio.php?idEstagio=<?php echo $row['idEstagio']; ?>" onclick="return confirm('Tem certeza que deseja excluir este estágio?');">Excluir</a>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="4">Nenhum estágio encontrado</td>
+            </tr>
+        <?php endif; ?>
+    </table>
+</body>
+</html>

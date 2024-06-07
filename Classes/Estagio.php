@@ -92,5 +92,16 @@ class Estagio {
             echo "Erro ao deletar estágio: " . $e->getMessage();
         }
     }
+
+    public function carregarTodosEstagios() {
+        $query = "
+            SELECT e.idEstagio, es.nome, e.acompanhamentoEstagio
+            FROM estagios e
+            INNER JOIN estudantes es ON e.idEstudante = es.idEstudante
+        ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
 }
 ?>
