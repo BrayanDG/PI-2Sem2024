@@ -1,17 +1,40 @@
 <?php
 session_start();
+$nome = $_SESSION['nome'];
+$idProfessor= $_SESSION['idProfessor'];
 require ('../../Classes/Conexao.php');
 require ('../../Classes/Documento.php');
-require ('../../Classes/Comentario.php');  // Supondo que exista uma classe para comentários
+require ('../../Classes/Comentario.php');
 require ('../../Classes/Estagio.php');
 require ('../../Classes/Estudante.php');
 
-
 $documento = new Documento();
-$comentario = new Comentario();  // Supondo que exista uma classe para comentários
+$comentario = new Comentario();
 $estagio = new Estagio();
+$estudante = new Estudante();
 
 $idEstagio = isset($_GET['idEstagio']) ? intval($_GET['idEstagio']) : 0;
+
+$nomeEstudante = "Estudante não encontrado";
+$dadosEstagio = [];
+$dadosEstudante = [];
+
+// Recuperar detalhes do estágio
+$dadosEstagio = $estagio->carregarEstagioPorIdEstagio($idEstagio);
+if ($dadosEstagio && isset($dadosEstagio['idEstudante'])) {
+    // Recuperar detalhes do estudante
+    $dadosEstudante = $estudante->carregarDadosEstudante($dadosEstagio['idEstudante']);
+    
+    if ($dadosEstudante && isset($dadosEstudante['nome'])) {
+        $nomeEstudante = $dadosEstudante['nome'];
+    } else {
+        // Depuração: Verificar se o idEstudante é válido
+        error_log("Estudante não encontrado para idEstudante: " . $dadosEstagio['idEstudante']);
+    }
+} else {
+    // Depuração: Verificar se o idEstagio é válido
+    error_log("Estágio não encontrado para idEstagio: " . $idEstagio);
+}
 
 // Recuperar documentos do estágio
 $documentos = $documento->carregarDocumentos($idEstagio);
@@ -22,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idProfessorOrientador = $_SESSION['idProfessorOrientador'];  // Supondo que a sessão tenha essa informação
     
     $comentario->cadastrarComentario($idEstagio, $idProfessorOrientador, $comentarioTexto);
-    header("Location: visualizar_documentos.php?idEstagio=$idEstagio");
+    header("Refresh: 2; url=visualizardocumentos.php?idEstagio=$idEstagio");
     exit();
 }
 ?>
@@ -33,15 +56,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Visualizar Documentos</title>
     <link rel="stylesheet" href="../../Styles/styles.css">
+    <script type="text/javascript">
+        function abrirEmNovaJanela(url) {
+            var novaJanela = window.open('', '_blank', 'width=800,height=600');
+            novaJanela.document.write('<html><head><title>Visualizar PDF</title></head><body>');
+            novaJanela.document.write('<iframe src="' + url + '" width="100%" height="100%" style="border:none;"></iframe>');
+            novaJanela.document.write('</body></html>');
+        }
+    </script>
 </head>
 <body>
     <?php include "./menu.php"; ?>
+    <h1>Aluno: <?php echo htmlspecialchars($nomeEstudante); ?></h1>
+    <h1>Estágio: <?php echo isset($dadosEstagio['acompanhamentoEstagio']) ? htmlspecialchars($dadosEstagio['acompanhamentoEstagio']) : 'N/A'; ?></h1>
+    <h1>idEstágio: <?php echo htmlspecialchars($idEstagio); ?></h1>
+    
     <h1>Documentos do Estágio</h1>
     <table border="1">
         <tr>
             <th>Descrição</th>
             <th>Status</th>
             <th>Arquivo</th>
+            <th>Ações</th>
         </tr>
         <?php if ($documentos && $documentos->rowCount() > 0): ?>
             <?php while ($row = $documentos->fetch(PDO::FETCH_ASSOC)): ?>
@@ -50,22 +86,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td><?php echo htmlspecialchars($row['statusDocumento']); ?></td>
                     <td>
                         <?php if (!empty($row['pdfarquivo'])): ?>
-                            <a href="<?php echo $row['pdfarquivo']; ?>" target="_blank">Visualizar</a>
+                            <a href="#" onclick="abrirEmNovaJanela('/HTML2/usuarios/alunos/upload/uploads/<?php echo basename($row['pdfarquivo']); ?>')">Visualizar</a>
                         <?php else: ?>
                             Não possui arquivo
                         <?php endif; ?>
+                    </td>
+                    <td>
+                        <a href="alterardocumento.php?idDocumento=<?php echo $row['idDocumento']; ?>&idEstagio=<?php echo $idEstagio; ?>">Alterar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
         <?php else: ?>
             <tr>
-                <td colspan="3">Nenhum documento encontrado</td>
+                <td colspan="4">Nenhum documento encontrado</td>
             </tr>
         <?php endif; ?>
     </table>
 
     <h2>Adicionar Comentário</h2>
-    <form action="visualizar_documentos.php?idEstagio=<?php echo $idEstagio; ?>" method="post">
+    <form action="visualizardocumentos.php?idEstagio=<?php echo $idEstagio; ?>" method="post">
         <label for="comentario">Comentário:</label>
         <textarea name="comentario" id="comentario" rows="4" cols="50" required></textarea>
         <br>

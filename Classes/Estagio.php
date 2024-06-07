@@ -49,6 +49,20 @@ class Estagio {
         }
     }
 
+    public function carregarEstagioPorIdEstagio($idEstagio) {
+        $sql = "SELECT * FROM estagios WHERE idEstagio = :idEstagio";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':idEstagio', $idEstagio);
+            $stmt->execute();
+            $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $linha;
+        } catch (PDOException $e) {
+            echo "Erro ao carregar dados do estágio: " . $e->getMessage();
+        }
+    }
+
     public function atualizarEstagio(
         $idEstagio,
         $acompanhamentoEstagio,

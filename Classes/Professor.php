@@ -82,40 +82,20 @@ class ProfessorOrientador {
         }
         return false;
     }
+    
+    public function carregarDadosProfessorIdUsuario($idUsuario) {
+        $sql = "SELECT * FROM professoresorientador WHERE idUsuario = :idUsuario";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':idUsuario', $idUsuario);
+            $stmt->execute();
+            $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $linha;
+        } catch (PDOException $e) {
+            echo "Erro ao carregar dados do professor orientador: " . $e->getMessage();
+        }
+    }
 }
 
-// Exemplo de uso:
-// require_once 'database.php';
-// $database = new Database();
-// $db = $database->getConnection();
-
-// $professorOrientador = new ProfessorOrientador($db);
-
-// Cadastrar professor orientador
-// if ($professorOrientador->cadastrarProfessorOrientador(1, "Nome do Professor", "Curso do Professor")) {
-//     echo "Professor orientador cadastrado com sucesso.";
-// } else {
-//     echo "Não foi possível cadastrar o professor orientador.";
-// }
-
-// Carregar todos os professores orientadores
-// $stmt = $professorOrientador->carregarProfessoresOrientadores();
-// while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-//     extract($row);
-//     echo "ID: {$idProfessorOrientador} - Nome: {$nome} - Curso: {$curso}<br>";
-// }
-
-// Atualizar professor orientador
-// if ($professorOrientador->atualizarProfessorOrientador(1, 1, "Nome atualizado", "Curso atualizado")) {
-//     echo "Professor orientador atualizado com sucesso.";
-// } else {
-//     echo "Não foi possível atualizar o professor orientador.";
-// }
-
-// Excluir professor orientador
-// if ($professorOrientador->excluirProfessorOrientador(1)) {
-//     echo "Professor orientador excluído com sucesso.";
-// } else {
-//     echo "Não foi possível excluir o professor orientador.";
-// }
 ?>

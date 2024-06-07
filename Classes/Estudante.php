@@ -52,7 +52,7 @@ class Estudante {
             echo "Erro ao carregar dados do estudante: " . $e->getMessage();
         }
     }
-    public function carregarDadosEstudanteporidusuario($idUsuario) {
+    public function carregarDadosEstudanteIdUsuario($idUsuario) {
         $sql = "SELECT * FROM estudantes WHERE idUsuario = :idUsuario";
         
         try {

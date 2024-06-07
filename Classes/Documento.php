@@ -30,27 +30,38 @@ class Documento {
     }
 
     public function atualizarDocumento($idDocumento, $idEstagio, $descricao, $caminho_arquivo_db = null) {
-        // Atualizar documento com ou sem novo arquivo
-        if ($caminho_arquivo_db) {
-            // Preparar a declaração SQL com novo arquivo
-            $sql = "UPDATE documentos SET idEstagio = :idEstagio, descricao = :descricao, pdfarquivo = :pdfarquivo WHERE idDocumento = :idDocumento";
-            $stmt = $this->conn->prepare($sql);
+        // Buscar dados existentes
+        $sql = "SELECT idEstagio, descricao, pdfarquivo FROM documentos WHERE idDocumento = :idDocumento";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':idDocumento', $idDocumento);
+        $stmt->execute();
+        $documentoExistente = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Bind dos parâmetros
-            $stmt->bindParam(':idDocumento', $idDocumento);
-            $stmt->bindParam(':idEstagio', $idEstagio);
-            $stmt->bindParam(':descricao', $descricao);
-            $stmt->bindParam(':pdfarquivo', $caminho_arquivo_db);
-        } else {
-            // Preparar a declaração SQL sem novo arquivo
-            $sql = "UPDATE documentos SET idEstagio = :idEstagio, descricao = :descricao WHERE idDocumento = :idDocumento";
-            $stmt = $this->conn->prepare($sql);
-
-            // Bind dos parâmetros
-            $stmt->bindParam(':idDocumento', $idDocumento);
-            $stmt->bindParam(':idEstagio', $idEstagio);
-            $stmt->bindParam(':descricao', $descricao);
+        // Se não encontrar o documento, retornar falso
+        if (!$documentoExistente) {
+            return false;
         }
+
+        // Manter os dados antigos se não forem alterados
+        if ($idEstagio === null) {
+            $idEstagio = $documentoExistente['idEstagio'];
+        }
+        if ($descricao === null) {
+            $descricao = $documentoExistente['descricao'];
+        }
+        if ($caminho_arquivo_db === null) {
+            $caminho_arquivo_db = $documentoExistente['pdfarquivo'];
+        }
+
+        // Preparar a declaração SQL com os dados atualizados
+        $sql = "UPDATE documentos SET idEstagio = :idEstagio, descricao = :descricao, pdfarquivo = :pdfarquivo WHERE idDocumento = :idDocumento";
+        $stmt = $this->conn->prepare($sql);
+
+        // Bind dos parâmetros
+        $stmt->bindParam(':idDocumento', $idDocumento);
+        $stmt->bindParam(':idEstagio', $idEstagio);
+        $stmt->bindParam(':descricao', $descricao);
+        $stmt->bindParam(':pdfarquivo', $caminho_arquivo_db);
 
         // Executar a declaração SQL
         if ($stmt->execute()) {
@@ -87,6 +98,32 @@ class Documento {
             return false;
         } catch (PDOException $exception) {
             echo "Error: " . $exception->getMessage();
+            return false;
+        }
+    }
+    
+    public function carregarDocumentoPorId($idDocumento) {
+        $sql = "SELECT idEstagio, descricao, pdfarquivo, statusDocumento FROM documentos WHERE idDocumento = :idDocumento";
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':idDocumento', $idDocumento);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $exception) {
+            echo "Error: " . $exception->getMessage();
+            return false;
+        }
+    }
+
+    public function atualizarStatusDocumento($idDocumento, $statusDocumento) {
+        $sql = "UPDATE documentos SET statusDocumento = :statusDocumento WHERE idDocumento = :idDocumento";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':idDocumento', $idDocumento);
+        $stmt->bindParam(':statusDocumento', $statusDocumento);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
             return false;
         }
     }

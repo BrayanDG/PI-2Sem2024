@@ -1,5 +1,7 @@
 <?php
 session_start();
+    $nome = $_SESSION['nome'];
+    $idProfessor= $_SESSION['idProfessor'];
 require ('../../Classes/Estagio.php');
 require ('../../Classes/Professor.php');
 

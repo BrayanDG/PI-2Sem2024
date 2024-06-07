@@ -17,7 +17,7 @@
         <div class="centro-menu">
             <div id="user-active">
                 <img src="../../Imagens/user-photo.png" alt="">
-                <Span>#####</Span>
+                <Span><?=$nome?></Span>
             </div>
             <img src="../../Imagens/design-bar.png" alt="barra-de-design" id="barra-design">
         </div>

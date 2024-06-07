@@ -17,18 +17,30 @@ if ($linha) {
     $usuario_logado = $linha['email'];
     $tipoUsuario = $linha['tipoUsuario'];
 
+    session_start();
+
     if ($tipoUsuario == 'prof') {
-        session_start();
-        $_SESSION['usuario_logado'] = $usuario_logado;
-        header('Location: ./professor/professor.php');
-    } else {
-        session_start();
+        $idUsuario = $linha['idUsuario'];
+
+        require "../Classes/Professor.php";
+        $localizarProfessor = new ProfessorOrientador();
+        $linhaProfessor = $localizarProfessor->carregarDadosProfessorIdUsuario($idUsuario);
+
+        if ($linhaProfessor) {
+            $_SESSION['idProfessor'] = $linhaProfessor['idProfessorOrientador'];
+            $_SESSION['nome'] = $linhaProfessor['nome'];
+            $_SESSION['usuario_logado'] = $usuario_logado;
+            header('Location: ./professor/professor.php');
+        } else {
+            // Professor não encontrado
+            header('Location: usuario-erro.php');
+        }
+    } elseif ($tipoUsuario == 'aluno') {
         $idUsuario = $linha['idUsuario'];
 
         require "../Classes/Estudante.php";
         $localizarEstudante = new Estudante();
-        $linhaEstudante = $localizarEstudante->carregarDadosEstudanteporidusuario($idUsuario);
-     
+        $linhaEstudante = $localizarEstudante->carregarDadosEstudanteIdUsuario($idUsuario);
 
         if ($linhaEstudante) {
             $_SESSION['idEstudante'] = $linhaEstudante['idEstudante'];
@@ -37,11 +49,14 @@ if ($linha) {
             header('Location: ./alunos/aluno.php');
         } else {
             // Estudante não encontrado
-            header('Location: estudante-erro.php');
+            header('Location: usuario-erro.php');
         }
+    } else {
+        // Tipo de usuário não encontrado
+        header('Location: usuario-erro.php');
     }
 } else {
     // Usuário ou senha inválida
-    header('Location: estudante-erro.php');
+    header('Location: usuario-erro.php');
 }
 ?>

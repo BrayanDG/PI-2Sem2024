@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $nome = $_SESSION['nome'];
+    $idProfessor= $_SESSION['idProfessor'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
