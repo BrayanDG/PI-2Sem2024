@@ -1,0 +1,191 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+}
+
+
+nav{
+    background-color: #d20000;
+}
+
+nav li{
+    display: inline-block;
+}
+
+
+nav li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav li a:hover{
+    background-color: rgb(94, 15, 15);
+}
+
+.menu li:last-child {
+    float: right;
+    background-color: #d84747;
+}
+.titulo-fantasia{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fantasia{
+    padding-top: 30px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#remuneracaob{
+    padding-top: 20px;
+}
+
+#solicitarb{
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #d20000;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 100%;
+    }
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
+
+.dropdown-menu{
+    position: absolute;
+    display: none;
+}
+
+.dropdown-menu a{
+    display: block;
+    color: rgb(255, 255, 255);
+    background-color: #d20000;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.centro-menu{
+    margin-bottom: 13px;
+}
+
+.logos{
+    display: inline ;
+}
+
+#user-active{
+    position: absolute;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    border-radius: 0px 50px 50px 0px;
+    background-color: #d9d9d9;
+    margin-top: 10px;
+}
+#user-active img{
+    height: 40px;
+}
+
+#barra-design{
+    height: 40px;
+    width: 100%;
+}
+
+#cps-logo{
+    float: right;
+    height: 100px;
+    width: 180px;
+}
+
+#fant{
+    display:inline-table;
+    align-items: center;
+}
+
+
+
+input[type=text], input[type=password],input[type=email] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+.doc-estagio{
+    padding-left: auto;
+    padding-top: 20px;
+    display: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-fantasia{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 20%;
+    padding: 8px;
+    display: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+	vertical-align: middle;
+    font-size: 15px;
+}
+
+.doc-estagio2{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descritivo{
+    padding-bottom: 100px;
+    padding-top: 15px;
+}
+
+
+.top-mainb{
+    display: center;
+    justify-content: center;
+}
+
+#coment-main{
+    border-radius: 25px;
+    border: 3px solid #d20000;
+    padding: 20px;
+    width: auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
