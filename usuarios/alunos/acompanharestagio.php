@@ -5,12 +5,24 @@ $idEstudante = $_SESSION['idEstudante'];
 
 require ('../../Classes/Estagio.php');
 require ('../../Classes/Documento.php');
+require ('../../Classes/Comentario.php');
 
 $estagio = new Estagio();
 $linhaEstagio = $estagio->carregarDadosEstagio($idEstudante);
 
+$idEstagio = $linhaEstagio['idEstagio'];
+
 $documento = new Documento();
 $documentos = $documento->carregarDocumentos($linhaEstagio['idEstagio']);
+
+if ($idEstagio) {
+    $comentarioObj = new Comentario();
+    $comentarios = $comentarioObj->carregarComentariosPorEstagio($idEstagio);
+} else {
+    echo "idEstagio não fornecido.";
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -87,9 +99,16 @@ $documentos = $documento->carregarDocumentos($linhaEstagio['idEstagio']);
                                 </center>
                         </div>
         </div>
-    <div id="coment-main">
-            <h2>Comentários</h2>
-            <p><!-- Espaço para comentários vindo do banco de dados --></p>
+        <div id="coment-main">
+            <?php if ($comentarios && $comentarios->rowCount() > 0): ?>
+                <?php while ($row = $comentarios->fetch(PDO::FETCH_ASSOC)): ?>
+                    <p><?php echo htmlspecialchars($row['comentario']); ?></p>
+                    <p><small><?php echo htmlspecialchars($row['dataHora']); ?></small></p>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>Nenhum comentário encontrado</p>
+            <?php endif; ?>
+    </div>
     </div>
 </body>
 </html>

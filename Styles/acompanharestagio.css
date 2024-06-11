@@ -186,6 +186,7 @@ table {
     padding: 20px;
     width: auto;
     height: 300px;
-    display: flex;
+    display: flexbox;
     justify-content: center;
+    
 }

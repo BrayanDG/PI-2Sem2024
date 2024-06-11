@@ -34,7 +34,7 @@ class Comentario {
 
     // Carregar comentários por estágio
     public function carregarComentariosPorEstagio($idEstagio) {
-        $query = "SELECT * FROM comentarios WHERE idEstagio = :idEstagio";
+        $query = "SELECT * FROM comentarios WHERE idEstagio = :idEstagio ORDER BY dataHora DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':idEstagio', $idEstagio);
         $stmt->execute();

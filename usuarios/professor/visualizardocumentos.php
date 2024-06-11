@@ -48,6 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Refresh: 2; url=visualizardocumentos.php?idEstagio=$idEstagio");
     exit();
 }
+
+
+    if ($idEstagio) {
+        $comentarioObj = new Comentario();
+        $comentarios = $comentarioObj->carregarComentariosPorEstagio($idEstagio);
+    } else {
+        echo "idEstagio não fornecido.";
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -104,11 +113,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </table>
 
     <h2>Adicionar Comentário</h2>
-    <form action="visualizardocumentos.php?idEstagio=<?php echo $idEstagio; ?>" method="post">
+    <form action="cadastrarcomentario.php?idEstagio=<?php echo $idEstagio; ?>" method="post">
         <label for="comentario">Comentário:</label>
         <textarea name="comentario" id="comentario" rows="4" cols="50" required></textarea>
         <br>
         <button type="submit">Enviar</button>
     </form>
+    <div id="coment-main">
+        <h2>Comentários</h2>
+        <table border="1">
+            <tr>
+                <th>Comentário</th>
+                <th>Data e Hora</th>
+            </tr>
+            <?php if ($comentarios && $comentarios->rowCount() > 0): ?>
+                <?php while ($row = $comentarios->fetch(PDO::FETCH_ASSOC)): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['comentario']); ?></td>
+                        <td><?php echo htmlspecialchars($row['dataHora']); ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="2">Nenhum comentário encontrado</td>
+                </tr>
+            <?php endif; ?>
+        </table>
+    </div>
 </body>
 </html>
