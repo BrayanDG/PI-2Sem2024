@@ -41,17 +41,17 @@ if ($idEstagio) {
                 <p>ID Estudante: <?php echo $linhaEstagio['idEstudante']; ?></p>
         <div class="top-mainb">
                 <!-- Outros dados do estágio -->
-                <div class="doc-estagio">
+                <div class="doc-estagio" id="fant">
                     <div class="titulo-fantasia">
                         <h2>Documentos do Estágio</h2>
                     </div>
                     <br>
-                    <table border="1">
-                        <tr>
-                            <th>Descrição</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
+                    <table border="3">
+                            <tr>
+                                <th scope="d2color">Descrição</th>
+                                <th scope="d2color">Status</th>
+                                <th scope="d2color">Ações</th>
+                            </tr>
                                 <?php if ($documentos && $documentos->rowCount() > 0): ?>
                                     <?php while ($row = $documentos->fetch(PDO::FETCH_ASSOC)): ?>
                                         <tr>
@@ -76,13 +76,15 @@ if ($idEstagio) {
                 </div>
                 
                 
-                <div class="doc-estagio2">
-                                <h2>Inserir Novo Documento</h2>
-                    </div>
+                
 
-                    <div class="descritivo">
-                                <center>
-                                    <form id="fat" action="upload/gravardocumento.php" method="post" enctype="multipart/form-data">
+                    <div class="descritivo" id="fant">
+                        <div class="doc-estagio2">
+                            <h2>Inserir Novo Documento</h2>
+                        </div>
+                        <br>
+                                <left>
+                                    <form id="" action="upload/gravardocumento.php" method="post" enctype="multipart/form-data">
                                         <label for="descricao">Descrição:</label>
                                         <select name="descricao" id="descricao">
                                             <option value="Termo de Compromisso">Termo de Compromisso</option>
@@ -90,16 +92,23 @@ if ($idEstagio) {
                                             <option value="Relatório Parcial">Relatório Parcial</option>
                                             <option value="Relatório Final">Relatório Final</option>
                                         </select>
-                                        <input type="hidden" name="statusDocumento" value="Em análise">
+                                        <input type="hidden" name="statusDocumento" value="Em análise"><br>
                                         <label for="pdfarquivo">Selecionar Documento:</label>
                                         <input type="file" name="pdfarquivo" id="pdfarquivo">
                                         <input type="hidden" name="idEstagio" value="<?php echo $linhaEstagio['idEstagio']; ?>">
-                                        <button type="submit">Inserir</button>
+                                        <br>
+                                        <br>
+                                        <div id="solicitarc">
+                                            <input type="submit" value="Inserir"><br>
+                                        </div>
                                     </form>
-                                </center>
+                                </left>
                         </div>
+                </div>
         </div>
         <div id="coment-main">
+            <h2>Comentários</h2>
+            <br>            
             <?php if ($comentarios && $comentarios->rowCount() > 0): ?>
                 <?php while ($row = $comentarios->fetch(PDO::FETCH_ASSOC)): ?>
                     <p><?php echo htmlspecialchars($row['comentario']); ?></p>
@@ -108,7 +117,7 @@ if ($idEstagio) {
             <?php else: ?>
                 <p>Nenhum comentário encontrado</p>
             <?php endif; ?>
-    </div>
+        </div>
     </div>
 </body>
 </html>

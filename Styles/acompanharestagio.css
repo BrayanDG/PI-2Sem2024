@@ -36,7 +36,6 @@ nav li a:hover{
     background-color: #d84747;
 }
 .titulo-fantasia{
-    padding-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,21 +53,6 @@ nav li a:hover{
     padding-top: 20px;
 }
 
-#solicitarb{
-    input[type=button], input[type=submit], input[type=reset] {
-        background-color: #d20000;
-        border: none;
-        color: white;
-        padding: 16px 32px;
-        margin: 4px 2px;
-        cursor: pointer;
-        width: 100%;
-    }
-    padding-top: 15px;
-    align-items: center;
-    justify-content: center;
-    display:flex;
-}
 
 .dropdown-menu{
     position: absolute;
@@ -134,13 +118,7 @@ input[type=text], input[type=password],input[type=email] {
     background: #f1f1f1;
 }
 
-.doc-estagio{
-    padding-left: auto;
-    padding-top: 20px;
-    display: center;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .titulo-fantasia{
     padding-top: 80px;
@@ -150,7 +128,7 @@ input[type=text], input[type=password],input[type=email] {
 }
 
 table {
-    width: 20%;
+    width: 100%;
     padding: 8px;
     display: center;
     margin-left: auto;
@@ -158,26 +136,42 @@ table {
     border-collapse: collapse;
     border: 1px solid black;
     text-align: center;
-	vertical-align: middle;
+	vertical-align: middle; 
     font-size: 15px;
+    tr:nth-child(even) {
+        background-color: #ffe4e4;
+    }
 }
 
-.doc-estagio2{
-    padding-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+th[scope='d2color'] {
+    background-color: #d20000;
+    color: #fff;
 }
 
-.descritivo{
+.doc-estagio{
+    padding-right: 200px;
+    float: right;
+    width: 50%;
+    height: 200px;
     padding-bottom: 100px;
     padding-top: 15px;
 }
 
 
+.doc-estagio2{
+    
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .top-mainb{
+    padding-left: 180px;
     display: center;
     justify-content: center;
+    padding-bottom: 80px;
 }
 
 #coment-main{
@@ -185,8 +179,30 @@ table {
     border: 3px solid #d20000;
     padding: 20px;
     width: auto;
-    height: 300px;
+    height: auto;
     display: flexbox;
     justify-content: center;
     
+}
+
+
+#solicitarc{
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #d20000;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 50%;
+    }
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
+
+.descritivo{
+    align-items: left;
+    justify-content: left;
 }
