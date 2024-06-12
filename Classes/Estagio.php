@@ -18,8 +18,8 @@ class Estagio {
         $idProfessorOrientador,
         $idEmpresa
     ) {
-        $sql = "INSERT INTO estagios (acompanhamentoEstagio, notaFinal, idEstudante, idProfessorOrientador, idEmpresa)
-                VALUES (:acompanhamentoEstagio, :notaFinal, :idEstudante, :idProfessorOrientador,  :idEmpresa)";
+        $sql = "INSERT INTO estagios (acompanhamentoEstagio, dataInicio, dataFim, notaFinal, idEstudante, idProfessorOrientador, idEmpresa)
+                VALUES (:acompanhamentoEstagio, NULL, NULL, :notaFinal, :idEstudante, :idProfessorOrientador, :idEmpresa)";
         
         try {
             $stmt = $this->conn->prepare($sql);
@@ -65,34 +65,76 @@ class Estagio {
 
     public function atualizarEstagio(
         $idEstagio,
-        $acompanhamentoEstagio,
-        $notaFinal,
-        $idEstudante,
-        $idProfessorOrientador,
-        $idEmpresa
+        $acompanhamentoEstagio = null,
+        $notaFinal = null,
+        $idEstudante = null,
+        $idProfessorOrientador = null,
+        $idEmpresa = null,
+        $dataInicio = null,
+        $dataFim = null
     ) {
-        $sql = "UPDATE estagios 
-                SET acompanhamentoEstagio = :acompanhamentoEstagio, 
-                    notaFinal = :notaFinal, 
-                    idEstudante = :idEstudante, 
-                    idProfessorOrientador = :idProfessorOrientador, 
-                    idEmpresa = :idEmpresa 
-                WHERE idEstagio = :idEstagio";
-
+        // Verificação se o ID do estágio foi fornecido
+        if ($idEstagio === null) {
+            echo "ID do estágio não fornecido.";
+            return;
+        }
+    
+        // Criação da lista de campos a serem atualizados
+        $fieldsToUpdate = [];
+        if ($acompanhamentoEstagio !== null) {
+            $fieldsToUpdate['acompanhamentoEstagio'] = $acompanhamentoEstagio;
+        }
+        if ($notaFinal !== null) {
+            $fieldsToUpdate['notaFinal'] = $notaFinal;
+        }
+        if ($idEstudante !== null) {
+            $fieldsToUpdate['idEstudante'] = $idEstudante;
+        }
+        if ($idProfessorOrientador !== null) {
+            $fieldsToUpdate['idProfessorOrientador'] = $idProfessorOrientador;
+        }
+        if ($idEmpresa !== null) {
+            $fieldsToUpdate['idEmpresa'] = $idEmpresa;
+        }
+        if ($dataInicio !== null) {
+            $fieldsToUpdate['dataInicio'] = $dataInicio;
+        }
+        if ($dataFim !== null) {
+            $fieldsToUpdate['dataFim'] = $dataFim;
+        }
+    
+        // Verificação se há campos para atualizar
+        if (empty($fieldsToUpdate)) {
+            echo "Nenhum campo para atualizar.";
+            return;
+        }
+    
+        // Construção da consulta SQL dinâmica
+        $sql = "UPDATE estagios SET ";
+        $sqlParts = [];
+        foreach ($fieldsToUpdate as $field => $value) {
+            $sqlParts[] = "$field = :$field";
+        }
+        $sql .= implode(", ", $sqlParts);
+        $sql .= " WHERE idEstagio = :idEstagio";
+    
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':acompanhamentoEstagio', $acompanhamentoEstagio);
-            $stmt->bindParam(':notaFinal', $notaFinal);
-            $stmt->bindParam(':idEstudante', $idEstudante);
-            $stmt->bindParam(':idProfessorOrientador', $idProfessorOrientador);
-            $stmt->bindParam(':idEmpresa', $idEmpresa);
-            $stmt->bindParam(':idEstagio', $idEstagio);
+    
+            // Vinculação dos parâmetros dinamicamente
+            foreach ($fieldsToUpdate as $field => &$value) {
+                $stmt->bindParam(":$field", $value);
+            }
+            $stmt->bindParam(':idEstagio', $idEstagio, PDO::PARAM_INT);
+    
+            // Execução da consulta
             $stmt->execute();
             echo "Estágio atualizado com sucesso!";
         } catch (PDOException $e) {
             echo "Erro ao atualizar estágio: " . $e->getMessage();
         }
     }
+    
 
     public function deletarEstagio($idEstudante) {
         $sql = "DELETE FROM estagios WHERE idEstudante = :idEstudante";

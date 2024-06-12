@@ -14,19 +14,21 @@ class Estudante {
     public function cadastrarEstudante(
         $nome,
         $RG,
+        $RA,
         $logradouro,
         $numeroResidencia,
         $cidade,
         $bairro,
         $idUsuario
     ) {
-        $sql = "INSERT INTO estudantes (nome, RG, logradouro, numeroResidencia, cidade, bairro, idUsuario)
-                VALUES (:nome, :RG, :logradouro, :numeroResidencia, :cidade, :bairro, :idUsuario)";
+        $sql = "INSERT INTO estudantes (nome, RG, RA, logradouro, numeroResidencia, cidade, bairro, idUsuario)
+                VALUES (:nome, :RG, :RA, :logradouro, :numeroResidencia, :cidade, :bairro, :idUsuario)";
         
         try {
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':RG', $RG);
+            $stmt->bindParam(':RA', $RA);
             $stmt->bindParam(':logradouro', $logradouro);
             $stmt->bindParam(':numeroResidencia', $numeroResidencia);
             $stmt->bindParam(':cidade', $cidade);
@@ -52,6 +54,7 @@ class Estudante {
             echo "Erro ao carregar dados do estudante: " . $e->getMessage();
         }
     }
+
     public function carregarDadosEstudanteIdUsuario($idUsuario) {
         $sql = "SELECT * FROM estudantes WHERE idUsuario = :idUsuario";
         
@@ -70,6 +73,7 @@ class Estudante {
         $idEstudante,
         $nome,
         $RG,
+        $RA,
         $logradouro,
         $numeroResidencia,
         $cidade,
@@ -79,6 +83,7 @@ class Estudante {
         $sql = "UPDATE estudantes 
                 SET nome = :nome, 
                     RG = :RG, 
+                    RA = :RA,
                     logradouro = :logradouro, 
                     numeroResidencia = :numeroResidencia, 
                     cidade = :cidade, 
@@ -91,6 +96,7 @@ class Estudante {
             $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':RG', $RG);
+            $stmt->bindParam(':RA', $RA);
             $stmt->bindParam(':logradouro', $logradouro);
             $stmt->bindParam(':numeroResidencia', $numeroResidencia);
             $stmt->bindParam(':cidade', $cidade);
