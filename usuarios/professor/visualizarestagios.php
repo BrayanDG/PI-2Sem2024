@@ -35,7 +35,7 @@ $estagios = $estagio->carregarTodosEstagios();
             <?php while ($row = $estagios->fetch(PDO::FETCH_ASSOC)): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['nome']); ?></td>
-                    <td><?php echo htmlspecialchars($row['acompanhamentoEstagio']); ?></td>
+                    <td><?php echo htmlspecialchars($row['situacaoEstagio']); ?></td>
                     <td>
                         <a href="visualizardocumentos.php?idEstagio=<?php echo $row['idEstagio']; ?>">Visualizar</a>
                     </td>

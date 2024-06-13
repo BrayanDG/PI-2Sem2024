@@ -12,18 +12,18 @@ class Estagio {
     }
 
     public function cadastrarEstagio(
-        $acompanhamentoEstagio,
+        $situacaoEstagio,
         $notaFinal,
         $idEstudante,
         $idProfessorOrientador,
         $idEmpresa
     ) {
-        $sql = "INSERT INTO estagios (acompanhamentoEstagio, dataInicio, dataFim, notaFinal, idEstudante, idProfessorOrientador, idEmpresa)
-                VALUES (:acompanhamentoEstagio, NULL, NULL, :notaFinal, :idEstudante, :idProfessorOrientador, :idEmpresa)";
+        $sql = "INSERT INTO estagios (situacaoEstagio, dataInicio, dataFim, notaFinal, idEstudante, idProfessorOrientador, idEmpresa)
+                VALUES (:situacaoEstagio, NULL, NULL, :notaFinal, :idEstudante, :idProfessorOrientador, :idEmpresa)";
         
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':acompanhamentoEstagio', $acompanhamentoEstagio);
+            $stmt->bindParam(':situacaoEstagio', $situacaoEstagio);
             $stmt->bindParam(':notaFinal', $notaFinal);
             $stmt->bindParam(':idEstudante', $idEstudante);
             $stmt->bindParam(':idProfessorOrientador', $idProfessorOrientador);
@@ -65,7 +65,7 @@ class Estagio {
 
     public function atualizarEstagio(
         $idEstagio,
-        $acompanhamentoEstagio = null,
+        $situacaoEstagio = null,
         $notaFinal = null,
         $idEstudante = null,
         $idProfessorOrientador = null,
@@ -81,8 +81,8 @@ class Estagio {
     
         // Criação da lista de campos a serem atualizados
         $fieldsToUpdate = [];
-        if ($acompanhamentoEstagio !== null) {
-            $fieldsToUpdate['acompanhamentoEstagio'] = $acompanhamentoEstagio;
+        if ($situacaoEstagio !== null) {
+            $fieldsToUpdate['situacaoEstagio'] = $situacaoEstagio;
         }
         if ($notaFinal !== null) {
             $fieldsToUpdate['notaFinal'] = $notaFinal;
@@ -151,7 +151,7 @@ class Estagio {
 
     public function carregarTodosEstagios() {
         $query = "
-            SELECT e.idEstagio, es.nome, e.acompanhamentoEstagio
+            SELECT e.idEstagio, es.nome, e.situacaoEstagio
             FROM estagios e
             INNER JOIN estudantes es ON e.idEstudante = es.idEstudante
         ";

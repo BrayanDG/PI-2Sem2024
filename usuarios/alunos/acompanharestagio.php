@@ -35,14 +35,20 @@ if ($idEstagio) {
 </head>
 
 <body>
-                <?php include "./menu.php";?>
-                <h4>Dados do Estágio</h4>
-                <p>ID Estágio: <?php echo $linhaEstagio['idEstagio']; ?></p>
-                <p>ID Estudante: <?php echo $linhaEstagio['idEstudante']; ?></p>
+        <?php include "./menu.php";?>
+        <h4>Dados do Estágio</h4>
+        <p>Situação do Estágio: <?php echo $linhaEstagio['situacaoEstagio']; ?></p>
+        <p>ID Estágio: <?php echo $linhaEstagio['idEstagio']; ?></p>
+        <p>ID Estudante: <?php echo $linhaEstagio['idEstudante']; ?></p>
+        <div>
+            <h2>Gerar Relatório Parcial</h2>
+            <a href="./docs/remunerado/gerarpdfrelatiorioparcial.php">Gerar</a>
+        </div>
         <div>
             <h2>Gerar Relatório Final</h2>
             <a href="./docs/remunerado/gerarpdfrelatoriofinal.php">Gerar</a>
         </div>
+        
         <div class="top-mainb">
                 <!-- Outros dados do estágio -->
                 <div class="doc-estagio" id="fant">
