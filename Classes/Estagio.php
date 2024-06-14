@@ -12,7 +12,7 @@ class Estagio {
     }
 
     public function cadastrarEstagio(
-        $situacaoEstagio,
+        $situacaoEstagio = 'Iniciado',
         $notaFinal,
         $idEstudante,
         $idProfessorOrientador,
@@ -34,7 +34,7 @@ class Estagio {
             echo "Erro ao cadastrar estágio: " . $e->getMessage();
         }
     }
-
+    
     public function carregarDadosEstagio($idEstudante) {
         $sql = "SELECT * FROM estagios WHERE idEstudante = :idEstudante";
         

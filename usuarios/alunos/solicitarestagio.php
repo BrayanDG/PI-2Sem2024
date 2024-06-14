@@ -31,9 +31,9 @@ $linhaEstagio = $estagio->carregarDadosEstagio($idEstudante);
 </div>
 <header>
     <?php
-    if ($linhaEstagio['acompanhamentoEstagio'] == 'ativo') {
-        
-        header('location: ./docs/gerartermo.php?ativo=1');
+    if ($linhaEstagio && isset($linhaEstagio['situacaoEstagio'])) {
+        header('location: ./docs/gerartermo.php?idEstagio='.$linhaEstagio['idEstagio']);
+        exit();
     } else {
         echo '<div class="fantasia">
             <form id="fant" action="./docs/gerartermo.php" method="post">

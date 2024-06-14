@@ -1,6 +1,19 @@
 <?php
-if (isset($_GET['ativo']) && $_GET['ativo'] == 1) {
-    // Se o estudante já tem estágio ativo, redireciona para a página correta
+session_start();
+if (!isset($_SESSION['nome']) || !isset($_SESSION['idEstudante'])) {
+    // Redireciona para a página de erro ou login caso as variáveis de sessão não estejam definidas
+    header('Location: usuario-erro.php');
+    exit();
+}
+$nome = $_SESSION['nome'];
+$idEstudante = $_SESSION['idEstudante'];
+
+require ('../../../Classes/Estagio.php');
+$estagio = new Estagio();
+
+$linhaEstagio = $estagio->carregarDadosEstagio($idEstudante);
+
+if ($linhaEstagio && isset($linhaEstagio['situacaoEstagio'])) {
     header('Location: ./remunerado/remunerado.php');
     exit();
 }
@@ -14,7 +27,6 @@ $cpfRepresentante = isset($_POST['cpfRepresentante']) ? $_POST['cpfRepresentante
 $endConcedente = isset($_POST['endConcedente']) ? $_POST['endConcedente'] : null;
 $cnpj = isset($_POST['cnpj']) ? $_POST['cnpj'] : null;
 $remuneracao = isset($_POST['remuneracao']) ? $_POST['remuneracao'] : null;
-$idEstudante = isset($_POST['idEstudante']) ? $_POST['idEstudante'] : null;
 
 // Verifica se todos os campos obrigatórios foram preenchidos
 if ($nomeFantasia && $representante && $cargoRepresentante && $telefone && $email && $cpfRepresentante && $endConcedente && $cnpj && $remuneracao && $idEstudante) {
@@ -32,12 +44,11 @@ if ($nomeFantasia && $representante && $cargoRepresentante && $telefone && $emai
         // Cria a solicitação de estágio
         require_once "../../../Classes/Estagio.php";
         $estagio = new Estagio();
-        $acompanhamentoEstagio = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
+        $situacaoEstagio = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
         $notaFinal = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
         $idProfessorOrientador = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
-        $idDocumento = ""; // Adicione o valor apropriado ou obtenha de $_POST se necessário
 
-        $estagio->cadastrarEstagio($acompanhamentoEstagio, $notaFinal, $idEstudante, $idProfessorOrientador, $idDocumento, $idEmpresa);
+        $estagio->cadastrarEstagio($situacaoEstagio, $notaFinal, $idEstudante, $idProfessorOrientador, $idEmpresa);
 
         // Redireciona para a documentação necessária
         if ($remuneracao == 'sim') {
