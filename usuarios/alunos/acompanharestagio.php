@@ -73,7 +73,7 @@ if ($idEstagio) {
                                                 <?php else: ?>
                                                     Não possui arquivo
                                                 <?php endif; ?>
-                                                <a href="excluir_documento.php?idDocumento=<?php echo $row['idDocumento']; ?>" onclick="return confirm('Tem certeza que deseja excluir este documento?');">Excluir</a>
+                                                <a href="excluirdocumento.php?idDocumento=<?php echo $row['idDocumento']; ?>" onclick="return confirm('Tem certeza que deseja excluir este documento?');">Excluir</a>
                                             </td>
                                         </tr>
                                     <?php endwhile; ?>

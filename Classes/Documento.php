@@ -86,21 +86,24 @@ class Documento {
     }
 
     public function excluirDocumento($idDocumento) {
-        $sql = "DELETE FROM documentos WHERE idDocumento = :idDocumento";
         
-        try {
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':idDocumento', $idDocumento);
 
-            if ($stmt->execute()) {
-                return true;
+            // Prossegue para excluir o registro do documento no banco de dados
+            $sqlDelete = "DELETE FROM documentos WHERE idDocumento = :idDocumento";
+            
+            try {
+                $stmtDelete = $this->conn->prepare($sqlDelete);
+                $stmtDelete->bindParam(':idDocumento', $idDocumento);
+
+                if ($stmtDelete->execute()) {
+                    return true;
+                }
+                return false;
+            } catch (PDOException $exception) {
+                echo "Erro: " . $exception->getMessage();
+                return false;
             }
-            return false;
-        } catch (PDOException $exception) {
-            echo "Error: " . $exception->getMessage();
-            return false;
-        }
-    }
+        } 
     
     public function carregarDocumentoPorId($idDocumento) {
         $sql = "SELECT idEstagio, descricao, pdfarquivo, statusDocumento FROM documentos WHERE idDocumento = :idDocumento";
