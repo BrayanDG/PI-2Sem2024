@@ -78,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include "./menu.php"; ?>
     <h1>Aluno: <?php echo htmlspecialchars($nomeEstudante); ?></h1>
     <h1>Estágio: <?php echo isset($dadosEstagio['situacaoEstagio']) ? htmlspecialchars($dadosEstagio['situacaoEstagio']) : 'N/A'; ?></h1>
+    <a href="alterarsituacao.php?idDocumento=<?php echo $idEstagio; ?>">Alterar Situação do Estágio</a>
     <h1>idEstágio: <?php echo htmlspecialchars($idEstagio); ?></h1>
     
     <h1>Documentos do Estágio</h1>
