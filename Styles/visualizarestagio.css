@@ -10,6 +10,15 @@ body{
     font-size: 12px;
 }
 
+h2, h4 {
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
 
 nav{
     background-color: #d20000;
@@ -18,8 +27,6 @@ nav{
 nav li{
     display: inline-block;
 }
-
-
 
 
 nav li a{
@@ -37,48 +44,13 @@ nav li a:hover{
     float: right;
     background-color: #d84747;
 }
-.titulo-fantasia{
-    padding-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.fantasia{
-    padding-top: 30px;
-    padding-bottom: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-#fant{
-    border-radius: 25px;
-    border: 3px solid #d20000;
-    padding: 20px;
-    width: 500px;
-    height: 220px;
-}
 
-#remuneracaob{
-    padding-top: 20px;
-}
 
-#solicitarb{
-    input[type=button], input[type=submit], input[type=reset] {
-        background-color: #d20000;
-        border: none;
-        color: white;
-        padding: 16px 32px;
-        margin: 4px 2px;
-        cursor: pointer;
-        width: 100%;
-    }
-    padding-top: 15px;
-    align-items: center;
-    justify-content: center;
-    display:flex;
-}
+
+a
+
 
 .dropdown-menu{
     position: absolute;
@@ -133,23 +105,68 @@ nav li a:hover{
     align-items: center;
 }
 
-
-
-input[type=text], input[type=password],input[type=email] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
+h1 {
+    text-align: center;
+    margin-top: 20px;
 }
 
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
 
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-  
+tr:hover {
+    background-color: #ddd;
+}
 
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
 
+a:hover {
+    text-decoration: underline;
+}
 
+a[onclick] {
+    color: #f44336;
+}
 
+a[onclick]:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 10%;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4b5764;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #d20000;
+}

@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Solicitação Estágio</title>
     <link rel="stylesheet" href="../../../../Styles/remunerado.css">
     <script src="../../../../js/custom.js"></script>
    
@@ -123,8 +123,6 @@
                     <label for="termino">Término: </label>
                     <input type="date" name="termino[]" id="termino" placeholder="termino">
                     <button type="button" onclick="adicionarCampos()"> + </button>
-
-
                 <br>
                 <br>
                 

@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Styles/styles.css">
+    <link rel="stylesheet" href="../../Styles/alterarsituacao.css">
     <title>Alterar Situação do Estágio</title>
 </head>
 <body>
     <?php include './menu.php' ?>
-    <h1>Alterar Situação do Estágio</h1>
+    <center><h1>Alterar Situação do Estágio</h1>
     <?php if ($successMessage) { echo "<p>$successMessage</p>"; } ?>
     <form method="POST" action="alterarsituacao.php?idDocumento=<?php echo $idEstagio; ?>">
         <label for="situacaoEstagio">Situação do Estágio:</label>
@@ -48,7 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br><br>
         <button type="submit">Atualizar</button>
     </form>
+    </center>
+    <br><br>
+    <center><a class="btn" href="javascript:history.back()">Voltar</a></center>
 </body>
+    <script>
+        document.write('<a href="' + document.referrer + '"');
+    </script>
+
 </html>
 
 <?php

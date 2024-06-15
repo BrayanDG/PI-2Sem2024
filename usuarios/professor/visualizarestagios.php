@@ -17,12 +17,13 @@ $estagios = $estagio->carregarTodosEstagios();
 <head>
     <meta charset="UTF-8">
     <title>Visualizar Estágios</title>
-    <link rel="stylesheet" href="../../Styles/styles.css">
+    <link rel="stylesheet" href="../../Styles/visualizarestagio.css">
 </head>
 <body>
     <?php
         include "./menu.php"
     ?>
+    <br><br>
     <h1>Visualizar Estágios</h1>
     <table border="1">
         <tr>
@@ -50,5 +51,11 @@ $estagios = $estagio->carregarTodosEstagios();
             </tr>
         <?php endif; ?>
     </table>
+
+    <center><a class="btn" href="javascript:history.back()">Voltar</a></center>
+
 </body>
+    <script>
+        document.write('<a href="' + document.referrer + '"');
+    </script>
 </html>

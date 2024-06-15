@@ -1,0 +1,238 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+}
+
+h2, h4 {
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+
+nav{
+    background-color: #d20000;
+}
+
+nav li{
+    display: inline-block;
+}
+
+
+nav li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav li a:hover{
+    background-color: rgb(94, 15, 15);
+}
+
+.menu li:last-child {
+    float: right;
+    background-color: #d84747;
+}
+
+
+
+
+.dropdown-menu{
+    position: absolute;
+    display: none;
+}
+
+.dropdown-menu a{
+    display: block;
+    color: rgb(255, 255, 255);
+    background-color: #d20000;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.centro-menu{
+    margin-bottom: 13px;
+}
+
+.logos{
+    display: inline ;
+}
+
+#user-active{
+    position: absolute;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    border-radius: 0px 50px 50px 0px;
+    background-color: #d9d9d9;
+    margin-top: 10px;
+}
+#user-active img{
+    height: 40px;
+}
+
+#barra-design{
+    height: 40px;
+    width: 100%;
+}
+
+#cps-logo{
+    float: right;
+    height: 100px;
+    width: 180px;
+}
+
+#fant{
+    display:inline-table;
+    align-items: center;
+}
+
+h1, h2 {
+
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #d20000;
+    color: white;
+}
+
+td {
+    color: #555;
+}
+
+a {
+    color: #d13434;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #297e29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #297e29;
+}
+
+#coment-main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+#coment-main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#coment-main th, #coment-main td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#coment-main th {
+    background-color: #d20000;
+    color: white;
+}
+
+#coment-main td {
+    color: #555;
+}
+
+.info-aluno {
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-aluno h1 {
+    font-size: 14px;
+    margin: 0; 
+    padding: 0 10px; 
+}
+
+.info-aluno a {
+    color: #0043d2;
+    text-decoration: none;
+    padding: 0 10px; 
+    transition: color 0.3s; 
+}
+
+.info-aluno a:hover {
+    color: #6b0303;
+}

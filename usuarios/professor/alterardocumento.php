@@ -48,12 +48,12 @@ function valorOuDefault($campo, $default) {
 <head>
     <meta charset="UTF-8">
     <title>Alterar Status do Documento</title>
-    <link rel="stylesheet" href="../../Styles/styles.css">
+    <link rel="stylesheet" href="../../Styles/alterardocumento.css">
 </head>
 <body>
     <?php include "./menu.php"; ?>
-    <h1>Alterar Status do Documento</h1>
-    <form action="alterardocumento.php?idDocumento=<?php echo $idDocumento; ?>&idEstagio=<?php echo $idEstagio; ?>" method="post">
+    <center><h1>Alterar Status do Documento</h1></center>
+    <center><form action="alterardocumento.php?idDocumento=<?php echo $idDocumento; ?>&idEstagio=<?php echo $idEstagio; ?>" method="post">
         <label for="statusDocumento">Status do Documento:</label>
         <select id="statusDocumento" name="statusDocumento" required>
             <option value="Em análise" <?php echo ($dadosDocumento['statusDocumento'] == 'Em análise') ? 'selected' : ''; ?>>Em análise</option>
@@ -61,6 +61,11 @@ function valorOuDefault($campo, $default) {
             <option value="Rejeitado" <?php echo ($dadosDocumento['statusDocumento'] == 'Rejeitado') ? 'selected' : ''; ?>>Rejeitado</option>
         </select><br>
         <button type="submit">Atualizar</button>
-    </form>
+    </form></center>
+    <br><br>
+    <center><a class="btn" href="javascript:history.back()">Voltar</a></center>
 </body>
+<script>
+    document.write('<a href="' + document.referrer + '"');
+</script>
 </html>
