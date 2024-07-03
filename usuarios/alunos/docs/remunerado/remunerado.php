@@ -108,7 +108,7 @@
 
     <div id="formnulario">  
         <div class="data-remunerado2">
-            <form id="fant2" action="planodeatividade.php" method="post">
+            <form id="fant2" action="gerarpdfplanodeatividade.php" method="post">
 
             <!-- Primeira atividade -->
             <div id="atividade">

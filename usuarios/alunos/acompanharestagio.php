@@ -10,6 +10,11 @@ require ('../../Classes/Comentario.php');
 $estagio = new Estagio();
 $linhaEstagio = $estagio->carregarDadosEstagio($idEstudante);
 
+if(!$idEstagio = $linhaEstagio['idEstagio']){
+    echo "Estágio não cadastrado";
+    header('Refresh: 2; url=aluno.php');
+}
+
 $idEstagio = $linhaEstagio['idEstagio'];
 
 $documento = new Documento();
